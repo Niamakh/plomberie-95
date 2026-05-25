@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  /* Fond clair */
+  --color-bg-base:    oklch(99% 0.005 240);   /* blanc presque pur, soupçon de bleu */
+  --color-bg-card:    oklch(100% 0 0);        /* blanc pur pour cartes */
+  --color-bg-soft:    oklch(97% 0.015 230);   /* bleu très très clair */
+  --color-bg-raised:  oklch(94% 0.025 225);   /* bleu ciel délavé */
+
+  /* Accent bleu ciel */
+  --color-sky:        oklch(68% 0.14 235);    /* bleu ciel principal */
+  --color-sky-light:  oklch(80% 0.10 225);    /* hover doux */
+  --color-sky-dark:   oklch(52% 0.16 240);    /* texte / bouton fort */
+  --color-sky-soft:   oklch(92% 0.04 230);    /* fond très pâle */
+
+  /* Texte */
+  --color-text-primary: oklch(22% 0.02 240);  /* presque noir bleuté */
+  --color-text-muted:   oklch(50% 0.02 240);  /* gris bleuté */
+  --color-text-soft:    oklch(65% 0.015 240); /* gris doux */
+
+  /* Bordures */
+  --color-border:       oklch(90% 0.015 230); /* bordure très claire */
+  --color-border-soft:  oklch(94% 0.012 230); /* bordure ultra légère */
+
+  /* Typo */
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body:    'Manrope', system-ui, sans-serif;
+}
+
+html, body {
+  background: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
