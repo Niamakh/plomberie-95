@@ -31,31 +31,6 @@ export default function BentoGrid() {
       className="px-6 md:px-10 mb-20 max-w-7xl mx-auto"
       aria-label="Articles récents"
     >
-      <div className="flex items-end justify-between mb-8">
-        <div>
-          <h2
-            className="font-extrabold tracking-tight"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(1.8rem, 3vw, 2.4rem)",
-              color: "var(--color-text-primary)",
-            }}
-          >
-            Les guides du moment
-          </h2>
-          <p className="text-sm md:text-base mt-1" style={{ color: "var(--color-text-muted)" }}>
-            Sélection des articles les plus consultés cette semaine.
-          </p>
-        </div>
-        <a
-          href="#all"
-          className="hidden md:inline-flex items-center gap-1 text-sm font-semibold transition-colors"
-          style={{ color: "var(--color-sky-dark)" }}
-        >
-          Voir tout →
-        </a>
-      </div>
-
       <motion.div
         variants={container}
         initial="hidden"
