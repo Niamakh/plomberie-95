@@ -1,3 +1,6 @@
+"use client"
+import Link from "next/link"
+
 import { Droplets } from "lucide-react"
 
 const FOOTER_LINKS = [
