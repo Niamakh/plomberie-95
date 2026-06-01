@@ -15,13 +15,13 @@ const container: Variants = {
 }
 
 const LAYOUT = [
-  { colClass: "col-span-12 md:col-span-7", minH: "min-h-72", isHero: true },
-  { colClass: "col-span-12 md:col-span-5", minH: "min-h-72", isHero: false },
-  { colClass: "col-span-12 md:col-span-4", minH: "min-h-52", isHero: false },
-  { colClass: "col-span-12 md:col-span-4", minH: "min-h-52", isHero: false },
-  { colClass: "col-span-12 md:col-span-4", minH: "min-h-52", isHero: false },
-  { colClass: "col-span-12 md:col-span-6", minH: "min-h-48", isHero: false },
-  { colClass: "col-span-12 md:col-span-6", minH: "min-h-48", isHero: false },
+  { colClass: "col-span-12 md:col-span-7", minH: "min-h-80", isHero: true },
+  { colClass: "col-span-12 md:col-span-5", minH: "min-h-80", isHero: false },
+  { colClass: "col-span-12 md:col-span-4", minH: "min-h-60", isHero: false },
+  { colClass: "col-span-12 md:col-span-4", minH: "min-h-60", isHero: false },
+  { colClass: "col-span-12 md:col-span-4", minH: "min-h-60", isHero: false },
+  { colClass: "col-span-12 md:col-span-6", minH: "min-h-52", isHero: false },
+  { colClass: "col-span-12 md:col-span-6", minH: "min-h-52", isHero: false },
 ]
 
 export default function BentoGrid() {
@@ -43,16 +43,13 @@ export default function BentoGrid() {
           >
             Les guides du moment
           </h2>
-          <p
-            className="text-sm md:text-base mt-1"
-            style={{ color: "var(--color-text-muted)" }}
-          >
+          <p className="text-sm md:text-base mt-1" style={{ color: "var(--color-text-muted)" }}>
             Sélection des articles les plus consultés cette semaine.
           </p>
         </div>
         <a
           href="#all"
-          className="hidden md:inline-flex items-center gap-1 text-sm font-semibold"
+          className="hidden md:inline-flex items-center gap-1 text-sm font-semibold transition-colors"
           style={{ color: "var(--color-sky-dark)" }}
         >
           Voir tout →
@@ -69,7 +66,7 @@ export default function BentoGrid() {
         {FEATURED_ARTICLES.map((article, idx) => {
           const layout = LAYOUT[idx] ?? {
             colClass: "col-span-12 md:col-span-4",
-            minH: "min-h-48",
+            minH: "min-h-52",
             isHero: false,
           }
           return (
@@ -80,14 +77,15 @@ export default function BentoGrid() {
             >
               <ArticleCard
                 title={article.title}
-                cluster={article.cluster}
-                clusterEmoji={article.emoji}
-                volume={article.volume}
-                kd={article.kd}
+                excerpt={article.excerpt}
+                category={article.category}
+                categoryEmoji={article.emoji}
+                readTime={article.readTime}
+                date={article.date}
                 format={article.format}
+                level={article.level}
                 featured={article.featured}
-                quickWin={article.quickWin}
-                monetisation={article.monetisation}
+                isNew={article.isNew}
                 isHero={layout.isHero}
               />
             </motion.div>

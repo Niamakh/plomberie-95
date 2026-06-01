@@ -1,112 +1,127 @@
 export interface Article {
   id: number
   title: string
-  cluster: string
+  excerpt: string
+  category: string
   emoji: string
-  volume: number
-  kd: number
+  readTime: number       // en minutes
+  date: string           // "DD MMM YYYY"
   format: string
-  monetisation: string
+  level: "Débutant" | "Intermédiaire" | "Avancé"
   slug: string
   featured: boolean
-  quickWin: boolean
+  isNew?: boolean
 }
 
 export const FEATURED_ARTICLES: Article[] = [
   {
     id: 1,
-    title: "Déboucher au Karcher : méthode complète + réglages",
-    cluster: "Débouchage",
+    title: "Déboucher une canalisation au Karcher : méthode complète",
+    excerpt:
+      "Pression d'eau, embouts adaptés, angles d'attaque… On vous explique comment déboucher efficacement vos canalisations extérieures avec un nettoyeur haute pression.",
+    category: "Débouchage",
     emoji: "🚿",
-    volume: 1600,
-    kd: 8,
-    format: "Tuto vidéo",
-    monetisation: "Affiliation + Adsense",
+    readTime: 8,
+    date: "28 mai 2026",
+    format: "Tutoriel",
+    level: "Intermédiaire",
     slug: "deboucher-canalisation-karcher",
     featured: false,
-    quickWin: false,
+    isNew: true,
   },
   {
     id: 2,
-    title: "Joint fibre ou caoutchouc : lequel choisir selon le raccord ?",
-    cluster: "Joints",
+    title: "Joint fibre ou caoutchouc : lequel choisir selon votre raccord ?",
+    excerpt:
+      "Un mauvais joint et c'est la fuite assurée. Voici comment identifier le bon matériau selon la pression, la température et le type de raccordement.",
+    category: "Joints",
     emoji: "🔗",
-    volume: 880,
-    kd: 10,
-    format: "Guide choix",
-    monetisation: "Affiliation spécialisée",
+    readTime: 5,
+    date: "22 mai 2026",
+    format: "Guide",
+    level: "Débutant",
     slug: "joint-fibre-ou-caoutchouc",
     featured: true,
-    quickWin: false,
+    isNew: false,
   },
   {
     id: 3,
-    title: "Les 20 outils de plomberie indispensables (débutant → pro)",
-    cluster: "Matériel",
+    title: "Les 20 outils de plomberie indispensables (de débutant à pro)",
+    excerpt:
+      "Clé à molette, coupe-tube, sertisseur… Ce guide recense tout ce qu'il faut avoir dans sa boîte à outils avant d'attaquer vos travaux de plomberie.",
+    category: "Matériel",
     emoji: "📐",
-    volume: 1000,
-    kd: 12,
-    format: "Guide achat",
-    monetisation: "Affiliation forte",
+    readTime: 10,
+    date: "18 mai 2026",
+    format: "Guide d'achat",
+    level: "Débutant",
     slug: "outils-plomberie-indispensables",
     featured: false,
-    quickWin: false,
+    isNew: false,
   },
   {
     id: 4,
     title: "Purger un radiateur en fonte : tuto complet avec astuces",
-    cluster: "Radiateur",
+    excerpt:
+      "Radiateur qui chauffe mal en bas, bruits de glouglou… Il suffit souvent de purger l'air emprisonné. On vous montre comment faire sans salir.",
+    category: "Radiateurs",
     emoji: "🌡️",
-    volume: 880,
-    kd: 10,
-    format: "Tuto saisonnier",
-    monetisation: "Saisonnier + Affiliation",
+    readTime: 7,
+    date: "14 mai 2026",
+    format: "Tutoriel",
+    level: "Débutant",
     slug: "purger-radiateur-fonte-tuto",
     featured: false,
-    quickWin: false,
+    isNew: false,
   },
   {
     id: 5,
     title: "Dans quel sens fermer un robinet ? L'astuce définitive",
-    cluster: "Robinetterie",
+    excerpt:
+      "Righty tighty, lefty loosy — mais encore ? Cette règle simple vous évitera de forcer et d'abîmer vos robinets pour toujours.",
+    category: "Robinetterie",
     emoji: "🚰",
-    volume: 210,
-    kd: 3,
-    format: "FAQ rapide",
-    monetisation: "Adsense",
+    readTime: 3,
+    date: "10 mai 2026",
+    format: "Astuce",
+    level: "Débutant",
     slug: "sens-fermer-robinet-astuce",
     featured: false,
-    quickWin: true,
+    isNew: false,
   },
   {
     id: 6,
-    title: "Comment vider un chauffe-eau : tutoriel pas-à-pas",
-    cluster: "Chauffe-eau",
+    title: "Comment vider un chauffe-eau : tutoriel pas à pas",
+    excerpt:
+      "Détartrage, remplacement de l'anode ou simple vidange préventive — voici la procédure complète pour vider votre ballon d'eau chaude en toute sécurité.",
+    category: "Chauffe-eau",
     emoji: "🔥",
-    volume: 720,
-    kd: 12,
-    format: "Tuto détaillé",
-    monetisation: "Affiliation + Leads",
+    readTime: 9,
+    date: "5 mai 2026",
+    format: "Tutoriel",
+    level: "Intermédiaire",
     slug: "vider-chauffe-eau-tutoriel",
     featured: false,
-    quickWin: false,
+    isNew: false,
   },
   {
     id: 7,
-    title: "Regard eaux usées maison individuelle : guide complet",
-    cluster: "Évacuation",
+    title: "Le regard d'eaux usées en maison individuelle : tout comprendre",
+    excerpt:
+      "Rôle, localisation, entretien et curage… Tout ce qu'il faut savoir sur les regards de visite pour garder votre réseau d'évacuation en bon état.",
+    category: "Évacuation",
     emoji: "🏗️",
-    volume: 720,
-    kd: 10,
+    readTime: 11,
+    date: "28 avr. 2026",
     format: "Guide complet",
-    monetisation: "Technique + Leads",
+    level: "Avancé",
     slug: "regard-eaux-usees-maison-role-entretien",
     featured: false,
-    quickWin: false,
+    isNew: false,
   },
 ]
 
-export const CLUSTERS = [
+export const CATEGORIES = [
   { label: "Débouchage", emoji: "🚿" },
   { label: "Chauffe-eau", emoji: "🔥" },
   { label: "Robinetterie", emoji: "🚰" },

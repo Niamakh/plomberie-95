@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { CLUSTERS } from "@/lib/articles"
+import { CATEGORIES } from "@/lib/articles"
 
 export default function ClusterStrip() {
   const [active, setActive] = useState<string | null>(null)
@@ -34,7 +34,7 @@ export default function ClusterStrip() {
             Tous les articles
           </button>
 
-          {CLUSTERS.map((cluster) => {
+          {CATEGORIES.map((cluster) => {
             const isActive = active === cluster.label
             return (
               <button

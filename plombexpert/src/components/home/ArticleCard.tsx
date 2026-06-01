@@ -1,53 +1,70 @@
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Clock, Calendar } from "lucide-react"
+
+const LEVEL_STYLE: Record<string, { bg: string; color: string }> = {
+  Débutant: {
+    bg: "oklch(94% 0.10 145 / 0.35)",
+    color: "oklch(42% 0.15 145)",
+  },
+  Intermédiaire: {
+    bg: "oklch(94% 0.10 65 / 0.35)",
+    color: "oklch(46% 0.14 60)",
+  },
+  Avancé: {
+    bg: "oklch(92% 0.10 20 / 0.35)",
+    color: "oklch(44% 0.16 20)",
+  },
+}
 
 export interface ArticleCardProps {
   title: string
-  cluster: string
-  clusterEmoji: string
-  volume: number
-  kd: number
+  excerpt: string
+  category: string
+  categoryEmoji: string
+  readTime: number
+  date: string
   format: string
+  level: "Débutant" | "Intermédiaire" | "Avancé"
   featured?: boolean
-  quickWin?: boolean
-  monetisation?: string
+  isNew?: boolean
   isHero?: boolean
 }
 
 export default function ArticleCard({
   title,
-  cluster,
-  clusterEmoji,
-  volume,
-  kd,
+  excerpt,
+  category,
+  categoryEmoji,
+  readTime,
+  date,
   format,
+  level,
   featured = false,
-  quickWin = false,
+  isNew = false,
   isHero = false,
 }: ArticleCardProps) {
-  const kdIsQuickWin = quickWin || kd <= 5
-
   const cardBg = featured
-    ? "linear-gradient(135deg, var(--color-sky) 0%, var(--color-sky-dark) 100%)"
+    ? "linear-gradient(145deg, var(--color-sky) 0%, var(--color-sky-dark) 100%)"
     : "white"
   const textColor = featured ? "white" : "var(--color-text-primary)"
-  const subTextColor = featured ? "oklch(95% 0.02 230 / 0.85)" : "var(--color-text-muted)"
+  const mutedColor = featured ? "oklch(96% 0.02 230 / 0.80)" : "var(--color-text-muted)"
   const borderColor = featured ? "transparent" : "var(--color-border)"
+  const levelStyle = LEVEL_STYLE[level]
 
   return (
     <article
-      className="group relative rounded-2xl p-6 overflow-hidden transition-all duration-300 cursor-pointer h-full flex flex-col justify-between"
+      className="group relative rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer h-full flex flex-col"
       style={{
         background: cardBg,
         border: `1px solid ${borderColor}`,
         boxShadow: featured
-          ? "0 12px 36px oklch(68% 0.14 235 / 0.25)"
-          : "0 1px 3px oklch(50% 0.02 240 / 0.04)",
+          ? "0 12px 36px oklch(68% 0.14 235 / 0.22)"
+          : "0 1px 4px oklch(50% 0.02 240 / 0.06)",
       }}
       onMouseEnter={(e) => {
         const el = e.currentTarget as HTMLElement
         el.style.transform = "translateY(-4px)"
         el.style.boxShadow = featured
-          ? "0 20px 48px oklch(68% 0.14 235 / 0.35)"
+          ? "0 20px 50px oklch(68% 0.14 235 / 0.32)"
           : "0 12px 32px oklch(50% 0.02 240 / 0.10)"
         if (!featured) el.style.borderColor = "oklch(68% 0.14 235 / 0.35)"
       }}
@@ -55,95 +72,123 @@ export default function ArticleCard({
         const el = e.currentTarget as HTMLElement
         el.style.transform = "translateY(0)"
         el.style.boxShadow = featured
-          ? "0 12px 36px oklch(68% 0.14 235 / 0.25)"
-          : "0 1px 3px oklch(50% 0.02 240 / 0.04)"
-        if (!featured) el.style.borderColor = "var(--color-border)"
+          ? "0 12px 36px oklch(68% 0.14 235 / 0.22)"
+          : "0 1px 4px oklch(50% 0.02 240 / 0.06)"
+        if (!featured) el.style.borderColor = borderColor
       }}
     >
+      {/* Barre colorée en haut de la hero card */}
       {isHero && !featured && (
         <div
           aria-hidden="true"
-          className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl"
+          className="absolute top-0 left-0 right-0 h-1"
           style={{
-            background:
-              "linear-gradient(to right, var(--color-sky) 0%, var(--color-sky-light) 100%)",
+            background: "linear-gradient(to right, var(--color-sky), var(--color-sky-light))",
           }}
         />
       )}
 
-      <div className="relative z-10 flex flex-col gap-3 flex-1">
-        <div className="flex items-center justify-between gap-2">
+      <div className="p-6 flex flex-col gap-4 flex-1">
+        {/* Header : catégorie + badges */}
+        <div className="flex items-center justify-between gap-2 flex-wrap">
           <span
-            className="text-xs uppercase tracking-wider font-bold flex items-center gap-1.5"
-            style={{ color: featured ? "white" : "var(--color-sky-dark)" }}
+            className="text-xs font-bold uppercase tracking-wider flex items-center gap-1.5"
+            style={{ color: featured ? "oklch(95% 0.05 225)" : "var(--color-sky-dark)" }}
           >
-            <span aria-hidden="true">{clusterEmoji}</span>
-            {cluster}
+            <span aria-hidden="true">{categoryEmoji}</span>
+            {category}
           </span>
 
-          <span
-            className="text-[0.7rem] px-2.5 py-0.5 rounded-full font-bold flex-shrink-0"
-            style={
-              featured
-                ? { background: "oklch(100% 0 0 / 0.2)", color: "white" }
-                : kdIsQuickWin
-                  ? {
-                      background: "oklch(94% 0.12 145 / 0.4)",
-                      color: "oklch(45% 0.16 145)",
-                    }
-                  : {
-                      background: "var(--color-sky-soft)",
-                      color: "var(--color-sky-dark)",
-                    }
-            }
-          >
-            KD {kd}
-            {kdIsQuickWin && !featured && " ⚡"}
-          </span>
+          <div className="flex items-center gap-1.5">
+            {isNew && (
+              <span
+                className="text-[0.65rem] px-2 py-0.5 rounded-full font-bold"
+                style={{
+                  background: featured ? "oklch(100% 0 0 / 0.2)" : "var(--color-sky-soft)",
+                  color: featured ? "white" : "var(--color-sky-dark)",
+                }}
+              >
+                Nouveau
+              </span>
+            )}
+            <span
+              className="text-[0.65rem] px-2 py-0.5 rounded-full font-bold"
+              style={
+                featured
+                  ? { background: "oklch(100% 0 0 / 0.18)", color: "white" }
+                  : { background: levelStyle.bg, color: levelStyle.color }
+              }
+            >
+              {level}
+            </span>
+          </div>
         </div>
 
+        {/* Titre */}
         <h3
-          className="font-bold text-lg leading-snug tracking-tight flex-1"
-          style={{ fontFamily: "var(--font-display)", color: textColor }}
+          className="font-bold leading-snug tracking-tight"
+          style={{
+            fontFamily: "var(--font-display)",
+            color: textColor,
+            fontSize: isHero ? "1.2rem" : "1rem",
+          }}
         >
           {title}
         </h3>
 
+        {/* Extrait — visible seulement sur les grandes cards */}
+        {(isHero || featured) && (
+          <p
+            className="text-sm leading-relaxed line-clamp-3"
+            style={{ color: mutedColor }}
+          >
+            {excerpt}
+          </p>
+        )}
+
+        {/* Format tag */}
         <span
-          className="text-xs uppercase tracking-wider font-semibold"
-          style={{ color: subTextColor }}
+          className="text-xs font-semibold uppercase tracking-wider"
+          style={{ color: mutedColor }}
         >
           {format}
         </span>
       </div>
 
+      {/* Footer : métadonnées + flèche */}
       <div
-        className="relative z-10 flex items-end justify-between mt-5 pt-4"
+        className="px-6 pb-5 flex items-center justify-between gap-4"
         style={{
           borderTop: `1px solid ${featured ? "oklch(100% 0 0 / 0.15)" : "var(--color-border-soft)"}`,
+          paddingTop: "1rem",
         }}
       >
-        <div className="flex flex-col gap-0.5">
-          <span
-            className="font-bold text-base tracking-tight"
-            style={{ fontFamily: "var(--font-display)", color: textColor }}
-          >
-            {volume.toLocaleString("fr-FR")}
+        <div className="flex items-center gap-3 text-xs" style={{ color: mutedColor }}>
+          <span className="flex items-center gap-1">
+            <Clock size={12} aria-hidden="true" />
+            {readTime} min
           </span>
-          <span className="text-xs" style={{ color: subTextColor }}>
-            rech./mois
+          <span
+            aria-hidden="true"
+            style={{ color: featured ? "oklch(100% 0 0 / 0.3)" : "var(--color-border)" }}
+          >
+            ·
+          </span>
+          <span className="flex items-center gap-1">
+            <Calendar size={12} aria-hidden="true" />
+            {date}
           </span>
         </div>
 
         <span
-          className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 group-hover:scale-110"
+          className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 group-hover:scale-110 flex-shrink-0"
           style={{
             background: featured ? "oklch(100% 0 0 / 0.2)" : "var(--color-sky-soft)",
             color: featured ? "white" : "var(--color-sky-dark)",
           }}
-          aria-hidden="true"
+          aria-label="Lire l'article"
         >
-          <ArrowUpRight size={16} />
+          <ArrowUpRight size={15} aria-hidden="true" />
         </span>
       </div>
     </article>
