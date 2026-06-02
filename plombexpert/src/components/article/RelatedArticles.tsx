@@ -1,8 +1,22 @@
 "use client"
 
+import Link from "next/link"
 import { ArrowUpRight, Clock } from "lucide-react"
 
-const RELATED = [
+interface RelatedArticle {
+  title: string
+  category: string
+  emoji: string
+  readTime: number
+  slug: string
+}
+
+interface RelatedArticlesProps {
+  articles?: RelatedArticle[]
+  current?: string
+}
+
+const DEFAULT_ARTICLES: RelatedArticle[] = [
   {
     title: "Joint fibre ou caoutchouc : lequel choisir ?",
     category: "Joints",
@@ -26,7 +40,9 @@ const RELATED = [
   },
 ]
 
-export default function RelatedArticles() {
+export default function RelatedArticles({ articles, current }: RelatedArticlesProps) {
+  const list = (articles ?? DEFAULT_ARTICLES).filter((a) => a.slug !== current).slice(0, 3)
+
   return (
     <section
       className="px-6 md:px-10 py-14"
@@ -48,8 +64,8 @@ export default function RelatedArticles() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {RELATED.map((article) => (
-            <a
+          {list.map((article) => (
+            <Link
               key={article.slug}
               href={`/articles/${article.slug}`}
               className="group flex flex-col justify-between rounded-2xl p-6 transition-all duration-200"
@@ -57,6 +73,7 @@ export default function RelatedArticles() {
                 background: "white",
                 border: "1px solid var(--color-border)",
                 boxShadow: "0 1px 4px oklch(50% 0.02 240 / 0.05)",
+                textDecoration: "none",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement
@@ -87,8 +104,14 @@ export default function RelatedArticles() {
                 </h3>
               </div>
 
-              <div className="flex items-center justify-between mt-5 pt-4" style={{ borderTop: "1px solid var(--color-border-soft)" }}>
-                <span className="flex items-center gap-1.5 text-xs" style={{ color: "var(--color-text-muted)" }}>
+              <div
+                className="flex items-center justify-between mt-5 pt-4"
+                style={{ borderTop: "1px solid var(--color-border-soft)" }}
+              >
+                <span
+                  className="flex items-center gap-1.5 text-xs"
+                  style={{ color: "var(--color-text-muted)" }}
+                >
                   <Clock size={12} aria-hidden="true" />
                   {article.readTime} min
                 </span>
@@ -100,7 +123,7 @@ export default function RelatedArticles() {
                   <ArrowUpRight size={14} />
                 </span>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

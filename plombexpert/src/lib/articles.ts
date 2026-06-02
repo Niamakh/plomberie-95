@@ -122,14 +122,14 @@ export const FEATURED_ARTICLES: Article[] = [
 ]
 
 export const CATEGORIES = [
-  { label: "Débouchage", emoji: "🚿" },
-  { label: "Chauffe-eau", emoji: "🔥" },
-  { label: "Robinetterie", emoji: "🚰" },
-  { label: "Fuites", emoji: "💧" },
-  { label: "Joints", emoji: "🔗" },
-  { label: "Évacuation", emoji: "🏗️" },
-  { label: "WC", emoji: "🚽" },
-  { label: "Matériel", emoji: "📐" },
-  { label: "Radiateurs", emoji: "🌡️" },
-  { label: "Siphon", emoji: "🪠" },
+  { label: "Débouchage",   emoji: "🚿", slug: "deboucher-canalisation-karcher" },
+  { label: "Chauffe-eau",  emoji: "🔥", slug: "vider-chauffe-eau-tutoriel" },
+  { label: "Robinetterie", emoji: "🚰", slug: "robinetterie-entretien-remplacement" },
+  { label: "Fuites",       emoji: "💧", slug: null },
+  { label: "Joints",       emoji: "🔗", slug: null },
+  { label: "Évacuation",   emoji: "🏗️", slug: null },
+  { label: "WC",           emoji: "🚽", slug: null },
+  { label: "Matériel",     emoji: "📐", slug: null },
+  { label: "Radiateurs",   emoji: "🌡️", slug: null },
+  { label: "Siphon",       emoji: "🪠", slug: null },
 ]
