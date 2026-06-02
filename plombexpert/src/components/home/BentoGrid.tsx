@@ -59,6 +59,7 @@ export default function BentoGrid() {
                 date={article.date}
                 format={article.format}
                 level={article.level}
+                slug={article.slug}
                 featured={article.featured}
                 isNew={article.isNew}
                 isHero={layout.isHero}

@@ -1,3 +1,6 @@
+"use client"
+
+import Link from "next/link"
 import { ArrowUpRight, Clock, Calendar } from "lucide-react"
 
 const LEVEL_STYLE: Record<string, { bg: string; color: string }> = {
@@ -24,6 +27,7 @@ export interface ArticleCardProps {
   date: string
   format: string
   level: "Débutant" | "Intermédiaire" | "Avancé"
+  slug: string
   featured?: boolean
   isNew?: boolean
   isHero?: boolean
@@ -38,6 +42,7 @@ export default function ArticleCard({
   date,
   format,
   level,
+  slug,
   featured = false,
   isNew = false,
   isHero = false,
@@ -51,14 +56,16 @@ export default function ArticleCard({
   const levelStyle = LEVEL_STYLE[level]
 
   return (
-    <article
-      className="group relative rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer h-full flex flex-col"
+    <Link
+      href={`/articles/${slug}`}
+      className="group relative rounded-2xl overflow-hidden transition-all duration-300 h-full flex flex-col"
       style={{
         background: cardBg,
         border: `1px solid ${borderColor}`,
         boxShadow: featured
           ? "0 12px 36px oklch(68% 0.14 235 / 0.22)"
           : "0 1px 4px oklch(50% 0.02 240 / 0.06)",
+        textDecoration: "none",
       }}
       onMouseEnter={(e) => {
         const el = e.currentTarget as HTMLElement
@@ -191,6 +198,6 @@ export default function ArticleCard({
           <ArrowUpRight size={15} aria-hidden="true" />
         </span>
       </div>
-    </article>
+    </Link>
   )
 }
