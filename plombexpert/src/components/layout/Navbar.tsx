@@ -1,13 +1,14 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Droplets, Search, Menu, X } from "lucide-react"
 
 const NAV_LINKS = [
-  { label: "Articles", href: "#articles" },
-  { label: "Tutos", href: "#tutos" },
-  { label: "Matériel", href: "#materiel" },
-  { label: "À propos", href: "#about" },
+  { label: "Articles", href: "/articles" },
+  { label: "Débouchage", href: "/articles/deboucher-canalisation-karcher" },
+  { label: "Chauffe-eau", href: "/articles/vider-chauffe-eau-tutoriel" },
+  { label: "Fuites", href: "/articles/fuites-detecter-reparer" },
 ]
 
 export default function Navbar() {
@@ -22,7 +23,7 @@ export default function Navbar() {
       }}
     >
       <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-2.5 flex-shrink-0">
+        <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
           <span
             className="w-8 h-8 rounded-xl flex items-center justify-center"
             style={{
@@ -42,12 +43,12 @@ export default function Navbar() {
           >
             Plomb<span style={{ color: "var(--color-sky)" }}>Expert</span>
           </span>
-        </a>
+        </Link>
 
         <ul className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <li key={link.label}>
-              <a
+              <Link
                 href={link.href}
                 className="text-sm font-medium transition-colors duration-150"
                 style={{ color: "var(--color-text-muted)" }}
@@ -59,7 +60,7 @@ export default function Navbar() {
                 }
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -76,8 +77,8 @@ export default function Navbar() {
             <Search size={16} aria-hidden="true" />
           </button>
 
-          <a
-            href="#newsletter"
+          <Link
+            href="/articles"
             className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-150 hover:-translate-y-0.5"
             style={{
               fontFamily: "var(--font-display)",
@@ -92,8 +93,8 @@ export default function Navbar() {
               ((e.currentTarget as HTMLElement).style.background = "var(--color-sky)")
             }
           >
-            S'abonner
-          </a>
+            Voir tous les articles
+          </Link>
 
           <button
             className="md:hidden p-2"
@@ -116,7 +117,7 @@ export default function Navbar() {
           style={{ borderTop: "1px solid var(--color-border-soft)" }}
         >
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className="text-sm font-medium"
@@ -124,10 +125,10 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#newsletter"
+          <Link
+            href="/articles"
             className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-semibold mt-2"
             style={{
               fontFamily: "var(--font-display)",
@@ -136,8 +137,8 @@ export default function Navbar() {
             }}
             onClick={() => setMobileOpen(false)}
           >
-            S'abonner
-          </a>
+            Voir tous les articles
+          </Link>
         </div>
       )}
     </header>
