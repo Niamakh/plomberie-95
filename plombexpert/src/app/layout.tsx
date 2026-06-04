@@ -16,10 +16,51 @@ const manrope = Manrope({
   display: "swap",
 })
 
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.plombexpert.fr"
+
 export const metadata: Metadata = {
-  title: "PlombExpert — La plomberie expliquée simplement",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "PlombExpert — La plomberie expliquée simplement",
+    template: "%s | PlombExpert",
+  },
   description:
-    "Guides pratiques, tutos DIY et conseils pour réparer, entretenir et comprendre votre plomberie. 80+ articles clairs pour particuliers.",
+    "Guides pratiques, tutos DIY et conseils pour réparer, entretenir et comprendre votre plomberie. Articles clairs pour particuliers.",
+  keywords: [
+    "plomberie", "débouchage", "chauffe-eau", "fuite d'eau", "robinetterie",
+    "radiateur", "WC", "siphon", "joint plomberie", "tuto plomberie",
+  ],
+  authors: [{ name: "Équipe PlombExpert" }],
+  creator: "PlombExpert",
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: BASE_URL,
+    siteName: "PlombExpert",
+    title: "PlombExpert — La plomberie expliquée simplement",
+    description:
+      "Guides pratiques, tutos DIY et conseils pour réparer, entretenir et comprendre votre plomberie.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PlombExpert — La plomberie expliquée simplement",
+    description:
+      "Guides pratiques, tutos DIY et conseils pour réparer, entretenir et comprendre votre plomberie.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: BASE_URL,
+  },
 }
 
 export default function RootLayout({

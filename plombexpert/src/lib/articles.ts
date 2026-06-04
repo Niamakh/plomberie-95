@@ -11,6 +11,7 @@ export interface Article {
   slug: string
   featured: boolean
   isNew?: boolean
+  hasPage: boolean       // true = page /articles/[slug] existe
 }
 
 export const FEATURED_ARTICLES: Article[] = [
@@ -28,6 +29,7 @@ export const FEATURED_ARTICLES: Article[] = [
     slug: "deboucher-canalisation-karcher",
     featured: false,
     isNew: true,
+    hasPage: true,
   },
   {
     id: 2,
@@ -43,6 +45,7 @@ export const FEATURED_ARTICLES: Article[] = [
     slug: "joint-fibre-ou-caoutchouc",
     featured: true,
     isNew: false,
+    hasPage: true,
   },
   {
     id: 3,
@@ -58,6 +61,7 @@ export const FEATURED_ARTICLES: Article[] = [
     slug: "outils-plomberie-indispensables",
     featured: false,
     isNew: false,
+    hasPage: false,
   },
   {
     id: 4,
@@ -73,6 +77,7 @@ export const FEATURED_ARTICLES: Article[] = [
     slug: "purger-radiateur-fonte-tuto",
     featured: false,
     isNew: false,
+    hasPage: true,
   },
   {
     id: 5,
@@ -88,6 +93,7 @@ export const FEATURED_ARTICLES: Article[] = [
     slug: "sens-fermer-robinet-astuce",
     featured: false,
     isNew: false,
+    hasPage: false,
   },
   {
     id: 6,
@@ -103,6 +109,7 @@ export const FEATURED_ARTICLES: Article[] = [
     slug: "vider-chauffe-eau-tutoriel",
     featured: false,
     isNew: false,
+    hasPage: true,
   },
   {
     id: 7,
@@ -118,6 +125,7 @@ export const FEATURED_ARTICLES: Article[] = [
     slug: "evacuation-canalisations-guide",
     featured: false,
     isNew: false,
+    hasPage: true,
   },
   {
     id: 8,
@@ -133,6 +141,7 @@ export const FEATURED_ARTICLES: Article[] = [
     slug: "robinetterie-entretien-remplacement",
     featured: false,
     isNew: false,
+    hasPage: true,
   },
   {
     id: 9,
@@ -148,6 +157,7 @@ export const FEATURED_ARTICLES: Article[] = [
     slug: "fuites-detecter-reparer",
     featured: false,
     isNew: false,
+    hasPage: true,
   },
   {
     id: 10,
@@ -163,6 +173,7 @@ export const FEATURED_ARTICLES: Article[] = [
     slug: "wc-entretien-reparation",
     featured: false,
     isNew: false,
+    hasPage: true,
   },
   {
     id: 11,
@@ -178,6 +189,7 @@ export const FEATURED_ARTICLES: Article[] = [
     slug: "siphon-nettoyage-remplacement",
     featured: false,
     isNew: false,
+    hasPage: true,
   },
 ]
 
