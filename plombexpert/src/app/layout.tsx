@@ -16,7 +16,7 @@ const manrope = Manrope({
   display: "swap",
 })
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.plombexpert.fr"
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.plombier-95-service.fr"
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

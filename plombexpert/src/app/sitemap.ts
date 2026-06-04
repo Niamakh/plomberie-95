@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 import { FEATURED_ARTICLES } from "@/lib/articles"
 
 // Changez cette URL quand vous déployez votre site
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.plombexpert.fr"
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.plombier-95-service.fr"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
