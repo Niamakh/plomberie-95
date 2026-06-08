@@ -61,7 +61,7 @@ export const FEATURED_ARTICLES: Article[] = [
     slug: "outils-plomberie-indispensables",
     featured: false,
     isNew: false,
-    hasPage: false,
+    hasPage: true,
   },
   {
     id: 4,
@@ -201,7 +201,7 @@ export const CATEGORIES = [
   { label: "Joints",       emoji: "🔗", slug: "joint-fibre-ou-caoutchouc" },
   { label: "Évacuation",   emoji: "🏗️", slug: "evacuation-canalisations-guide" },
   { label: "WC",           emoji: "🚽", slug: "wc-entretien-reparation" },
-  { label: "Matériel",     emoji: "📐", slug: null },
+  { label: "Matériel",     emoji: "📐", slug: "outils-plomberie-indispensables" },
   { label: "Radiateurs",   emoji: "🌡️", slug: "purger-radiateur-fonte-tuto" },
   { label: "Siphon",       emoji: "🪠", slug: "siphon-nettoyage-remplacement" },
 ]
