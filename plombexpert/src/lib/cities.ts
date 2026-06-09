@@ -17,6 +17,12 @@ export interface City {
   neighborhoods?: string[]
   /** Villes voisines mentionnées pour le maillage local */
   nearby?: string[]
+  /** Title SEO personnalisé (≤60 car.) — remplace le title générique si renseigné */
+  customTitle?: string
+  /** Meta description personnalisée (≤155 car.) — remplace la description générique si renseigné */
+  customDescription?: string
+  /** Texte du H1 personnalisé — remplace le H1 générique si renseigné */
+  customH1?: string
 }
 
 export const CITIES: City[] = [
@@ -38,6 +44,28 @@ export const CITIES: City[] = [
       "Gonesse centre", "La Fauconnière", "Les Noues", "Val Roger", "Gonesse Gare",
     ],
     nearby: ["Villepinte", "Garges-lès-Gonesse", "Sarcelles", "Arnouville", "Bonneuil-en-France"],
+  },
+  {
+    slug: "Plombier-Herblay",
+    name: "Herblay",
+    cp: "95220",
+    dept: "Val-d'Oise",
+    mainKeyword: "plombier herblay",
+    volume: 320,
+    secondaryKeywords: [
+      "plombier a herblay",
+      "plombier herblay 95",
+      "dépannage plomberie herblay",
+      "plombier chauffagiste herblay",
+      "urgence plombier herblay",
+    ],
+    neighborhoods: [
+      "Herblay centre", "Le Cordon", "La Butte aux Grives", "Le Ru de Montlignon", "Val-Notre-Dame",
+    ],
+    nearby: ["Conflans-Sainte-Honorine", "Argenteuil", "Cergy", "Franconville", "Taverny"],
+    customTitle: "Plombier Herblay 95220 - Dépannage Plomberie | Plombier 95 Service",
+    customDescription: "Plombier à Herblay (95220) : urgence fuite, débouchage canalisation, installation sanitaire. Artisan local, devis gratuit, intervention sous 1h.",
+    customH1: "Plombier à Herblay (95220) - Artisan local 7j/7",
   },
   // Ajoutez d'autres villes ici en suivant le même modèle :
   // {

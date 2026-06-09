@@ -91,8 +91,19 @@ export default function CityLanding({ city }: { city: City }) {
                   fontSize: "clamp(2rem, 4.5vw, 3.2rem)",
                 }}
               >
-                Plombier à {city.name} ({city.cp}){" "}
-                <span style={{ color: "var(--color-sky)" }}>— Intervention rapide 24h/24</span>
+                {city.customH1 ? (
+                  <>
+                    {city.customH1.split(" - ")[0]}{" "}
+                    <span style={{ color: "var(--color-sky)" }}>
+                      — {city.customH1.split(" - ")[1] ?? "Artisan local 7j/7"}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    Plombier à {city.name} ({city.cp}){" "}
+                    <span style={{ color: "var(--color-sky)" }}>— Intervention rapide 24h/24</span>
+                  </>
+                )}
               </h1>
 
               <p className="text-lg leading-relaxed mb-8 max-w-xl" style={{ color: "var(--color-text-muted)" }}>
