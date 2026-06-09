@@ -67,6 +67,28 @@ export const CITIES: City[] = [
     customDescription: "Plombier à Herblay (95220) : urgence fuite, débouchage canalisation, installation sanitaire. Artisan local, devis gratuit, intervention sous 1h.",
     customH1: "Plombier à Herblay (95220) - Artisan local 7j/7",
   },
+  {
+    slug: "Plombier-Goussainville",
+    name: "Goussainville",
+    cp: "95190",
+    dept: "Val-d'Oise",
+    mainKeyword: "plombier goussainville",
+    volume: 320,
+    secondaryKeywords: [
+      "chauffagiste goussainville",
+      "plombier chauffagiste goussainville",
+      "dépannage plomberie goussainville",
+      "urgence plombier goussainville 95",
+      "débouchage goussainville",
+    ],
+    neighborhoods: [
+      "Goussainville centre", "Vieux-Pays", "Les Bâtons", "La Croix Verte", "Le Bois Certeau",
+    ],
+    nearby: ["Gonesse", "Sarcelles", "Villiers-le-Bel", "Garges-lès-Gonesse", "Fosses"],
+    customTitle: "Plombier Goussainville 95190 - Dépannage Urgent | Plombier 95",
+    customDescription: "Plombier Goussainville 95190 - Dépannage Urgent | Plombier 95",
+    customH1: "Plombier à Goussainville (95190) - Dépannage 24/7",
+  },
   // Ajoutez d'autres villes ici en suivant le même modèle :
   // {
   //   slug: "Plombier-Cergy",
