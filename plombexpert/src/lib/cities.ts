@@ -46,7 +46,7 @@ export const CITIES: City[] = [
     nearby: ["Villepinte", "Garges-lès-Gonesse", "Sarcelles", "Arnouville", "Bonneuil-en-France"],
   },
   {
-    slug: "Plombier-Herblay",
+    slug: "Plombier-sur-Herblay",
     name: "Herblay",
     cp: "95220",
     dept: "Val-d'Oise",
