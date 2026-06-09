@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next"
 import { FEATURED_ARTICLES } from "@/lib/articles"
+import { CITIES } from "@/lib/cities"
 
-// Changez cette URL quand vous déployez votre site
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.plombier-95-service.fr"
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -23,15 +23,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // Pages articles (uniquement celles qui ont une page réelle)
+  // Pages articles
   const articleRoutes: MetadataRoute.Sitemap = FEATURED_ARTICLES
     .filter((article) => article.hasPage)
     .map((article) => ({
       url: `${BASE_URL}/articles/${article.slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
-      priority: 0.8,
+      priority: 0.7,
     }))
 
-  return [...staticRoutes, ...articleRoutes]
+  // Pages villes (priorité haute — pages commerciales)
+  const cityRoutes: MetadataRoute.Sitemap = CITIES.map((city) => ({
+    url: `${BASE_URL}/${city.slug}/`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  }))
+
+  return [...staticRoutes, ...cityRoutes, ...articleRoutes]
 }
