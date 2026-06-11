@@ -93,6 +93,14 @@ const ARGENTEUIL_NEARBY_LINKS: { label: string; href?: string }[] = [
   { label: "Colombes" },
 ]
 
+const SOISY_NEARBY_LINKS: { label: string; href?: string }[] = [
+  { label: "Plombier Montmorency", href: "/Plombier-Montmorency/" },
+  { label: "Plombier Saint-Gratien", href: "/Artisan-Plombier-Saint-Gratien/" },
+  { label: "Plombier Enghien-les-Bains" },
+  { label: "Plombier Deuil-la-Barre" },
+  { label: "Margency" },
+]
+
 const SERVICES = [
   { icon: <Droplets size={22} />, titre: "Dépannage fuite d'eau", desc: "Localisation et réparation de toutes les fuites : robinets, joints, tuyauteries apparentes ou encastrées.", urgence: true },
   { icon: <Zap size={22} />, titre: "Débouchage canalisations", desc: "Évier, WC, douche, bac à douche, canalisation extérieure. Furet, haute pression ou ventouse selon l'obstruction.", urgence: true },
@@ -141,8 +149,9 @@ export default function CityLanding({ city }: { city: City }) {
   const isMontmagny = city.slug === "Plombier-Montmagny"
   const isMontmorency = city.slug === "Plombier-Montmorency"
   const isArgenteuil = city.slug === "Plombier-Argenteuil-95100"
-  const hasSeoEnhancements = isGonesse || isHerblay || isGoussainville || isSaintGratien || isErmont || isMontmagny || isMontmorency || isArgenteuil
-  const hasReplacedIntro = isHerblay || isGoussainville || isSaintGratien || isErmont || isMontmagny || isMontmorency || isArgenteuil
+  const isSoisy = city.slug === "Depannage-plomberie-Soisy-sous-Montmorency"
+  const hasSeoEnhancements = isGonesse || isHerblay || isGoussainville || isSaintGratien || isErmont || isMontmagny || isMontmorency || isArgenteuil || isSoisy
+  const hasReplacedIntro = isHerblay || isGoussainville || isSaintGratien || isErmont || isMontmagny || isMontmorency || isArgenteuil || isSoisy
 
   return (
     <>
@@ -513,6 +522,25 @@ export default function CityLanding({ city }: { city: City }) {
                   ) : isArgenteuil ? (
                     <ul className="grid grid-cols-2 gap-2 mt-4 text-sm">
                       {ARGENTEUIL_NEARBY_LINKS.map((link) => (
+                        <li key={link.label}>
+                          {link.href ? (
+                            <Link href={link.href} className="underline hover:text-blue-700">
+                              {link.label}
+                            </Link>
+                          ) : (
+                            <span>{link.label}</span>
+                          )}
+                        </li>
+                      ))}
+                      <li>
+                        <Link href="/" className="underline hover:text-blue-700">
+                          Toutes nos villes du Val-d&apos;Oise →
+                        </Link>
+                      </li>
+                    </ul>
+                  ) : isSoisy ? (
+                    <ul className="grid grid-cols-2 gap-2 mt-4 text-sm">
+                      {SOISY_NEARBY_LINKS.map((link) => (
                         <li key={link.label}>
                           {link.href ? (
                             <Link href={link.href} className="underline hover:text-blue-700">
@@ -947,6 +975,47 @@ export default function CityLanding({ city }: { city: City }) {
                   </h3>
                   <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
                     Oui, nos plombiers à Argenteuil réparent tout type de WC défaillant : chasse d&apos;eau qui fuit, mécanisme de flotteur bloqué, joint de clapet usé ou WC suspendu défectueux. Intervention le jour même sur Argenteuil (95100).{" "}
+                    <Link href="/articles/wc-entretien-reparation" className="underline text-blue-700">
+                      Guide : réparer un WC qui coule soi-même →
+                    </Link>
+                  </p>
+                </div>
+              </>
+            ) : isSoisy ? (
+              <>
+                {FAQ_ITEMS.slice(0, 2).map((item, i) => (
+                  <div key={i} className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                    <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                      {item.q(city)}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{item.a(city)}</p>
+                  </div>
+                ))}
+                <div className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                  <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                    Quelles zones couvrez-vous autour de Soisy-sous-Montmorency ?
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                    Nous intervenons à Soisy-sous-Montmorency (95230) et dans les communes voisines du Val-d&apos;Oise, sans frais de déplacement supplémentaires :{" "}
+                    <Link href="/Plombier-Montmorency/" className="underline text-blue-700">Montmorency</Link>,{" "}
+                    <Link href="/Artisan-Plombier-Saint-Gratien/" className="underline text-blue-700">Saint-Gratien</Link>, Enghien-les-Bains, Deuil-la-Barre, Margency. Consultez notre{" "}
+                    <Link href="/" className="underline text-blue-700">page d&apos;accueil</Link> pour voir toutes les villes couvertes dans le 95.
+                  </p>
+                </div>
+                {FAQ_ITEMS.slice(3).map((item, i) => (
+                  <div key={i + 3} className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                    <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                      {item.q(city)}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{item.a(city)}</p>
+                  </div>
+                ))}
+                <div className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                  <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                    Intervenez-vous pour les WC qui coulent à Soisy-sous-Montmorency ?
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                    Oui, nos plombiers à Soisy-sous-Montmorency réparent tout type de WC défaillant : chasse d&apos;eau qui fuit, mécanisme de flotteur bloqué, joint de clapet usé ou WC suspendu défectueux. Intervention le jour même sur Soisy-sous-Montmorency (95230).{" "}
                     <Link href="/articles/wc-entretien-reparation" className="underline text-blue-700">
                       Guide : réparer un WC qui coule soi-même →
                     </Link>

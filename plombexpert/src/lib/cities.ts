@@ -262,9 +262,13 @@ export const CITIES: City[] = [
       "Quartier des Écoles", "Les Hauts de Soisy", "Chemin de la Montagne",
     ],
     nearby: ["Montmorency", "Saint-Gratien", "Enghien-les-Bains", "Deuil-la-Barre", "Margency"],
-    customTitle: "Plombier Soisy-sous-Montmorency 95230 - Dépannage | Plombier 95",
-    customDescription: "Plombier à Soisy-sous-Montmorency (95230) : dépannage fuite, chauffage, sanitaire. Intervention rapide, devis gratuit, 7j/7.",
-    customH1: "Dépannage Plomberie à Soisy-sous-Montmorency (95230) - 7j/7",
+    customTitle: "Plombier Soisy-sous-Montmorency 95230 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customDescription:
+      "Plombier à Soisy-sous-Montmorency 95230 — Intervention sous 1h, 24h/24. Fuite, débouchage, chauffe-eau, chauffage. Artisans RGE certifiés. Devis gratuit, 0 supplément déplacement. ☎ Appelez maintenant.",
+    customH1: "Plombier à Soisy-sous-Montmorency (95230) — Urgence Fuite, Débouchage & Chauffage 24h/24",
+    customTwitterTitle: "Plombier Soisy-sous-Montmorency 95230 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customTwitterDescription:
+      "Plombier à Soisy-sous-Montmorency (95230) : dépannage urgent, fuite, débouchage, chauffe-eau. Artisan certifié RGE. Devis gratuit, intervention rapide.",
   },
   {
     slug: "Plombier-dans-Jouy-le-Moutier",
