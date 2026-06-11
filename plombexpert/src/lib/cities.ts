@@ -181,9 +181,13 @@ export const CITIES: City[] = [
       "Quartier de la Gare", "Les Hauts de Montmagny", "Rue de Paris",
     ],
     nearby: ["Sarcelles", "Enghien-les-Bains", "Deuil-la-Barre", "Groslay", "Saint-Brice-sous-Forêt"],
-    customTitle: "Plombier Montmagny 95360 - Dépannage 24/7 | Plombier 95 Service",
-    customDescription: "Plombier Montmagny 95360 - Dépannage 24/7 | Plombier 95 Service",
-    customH1: "Plombier à Montmagny (95360) - Dépannage 24/7",
+    customTitle: "Plombier Montmagny 95360 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customDescription:
+      "Plombier à Montmagny 95360 — Intervention sous 1h, 24h/24. Fuite, débouchage, chauffe-eau. Artisans RGE certifiés. Devis gratuit, 0 supplément déplacement. ☎ Appelez maintenant.",
+    customH1: "Plombier à Montmagny (95360) — Urgence Fuite, Débouchage & Chauffage 24h/24",
+    customTwitterTitle: "Plombier Montmagny 95360 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customTwitterDescription:
+      "Plombier à Montmagny (95360) : dépannage urgent, fuite, débouchage, chauffe-eau. Artisan certifié RGE. Devis gratuit, intervention rapide.",
   },
   {
     slug: "Plombier-Montmorency",

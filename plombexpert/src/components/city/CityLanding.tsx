@@ -69,6 +69,14 @@ const ERMONT_NEARBY_LINKS: { label: string; href?: string }[] = [
   { label: "Plombier Enghien-les-Bains" },
 ]
 
+const MONTMAGNY_NEARBY_LINKS: { label: string; href?: string }[] = [
+  { label: "Plombier Sarcelles" },
+  { label: "Plombier Enghien-les-Bains" },
+  { label: "Plombier Deuil-la-Barre" },
+  { label: "Plombier Groslay" },
+  { label: "Plombier Saint-Brice-sous-Forêt" },
+]
+
 const SERVICES = [
   { icon: <Droplets size={22} />, titre: "Dépannage fuite d'eau", desc: "Localisation et réparation de toutes les fuites : robinets, joints, tuyauteries apparentes ou encastrées.", urgence: true },
   { icon: <Zap size={22} />, titre: "Débouchage canalisations", desc: "Évier, WC, douche, bac à douche, canalisation extérieure. Furet, haute pression ou ventouse selon l'obstruction.", urgence: true },
@@ -114,8 +122,9 @@ export default function CityLanding({ city }: { city: City }) {
   const isGoussainville = city.slug === "Plombier-Goussainville"
   const isSaintGratien = city.slug === "Artisan-Plombier-Saint-Gratien"
   const isErmont = city.slug === "Plombier-a-Ermont"
-  const hasSeoEnhancements = isGonesse || isHerblay || isGoussainville || isSaintGratien || isErmont
-  const hasReplacedIntro = isHerblay || isGoussainville || isSaintGratien || isErmont
+  const isMontmagny = city.slug === "Plombier-Montmagny"
+  const hasSeoEnhancements = isGonesse || isHerblay || isGoussainville || isSaintGratien || isErmont || isMontmagny
+  const hasReplacedIntro = isHerblay || isGoussainville || isSaintGratien || isErmont || isMontmagny
 
   return (
     <>
@@ -445,6 +454,25 @@ export default function CityLanding({ city }: { city: City }) {
                         </Link>
                       </li>
                     </ul>
+                  ) : isMontmagny ? (
+                    <ul className="grid grid-cols-2 gap-2 mt-4 text-sm">
+                      {MONTMAGNY_NEARBY_LINKS.map((link) => (
+                        <li key={link.label}>
+                          {link.href ? (
+                            <Link href={link.href} className="underline hover:text-blue-700">
+                              {link.label}
+                            </Link>
+                          ) : (
+                            <span>{link.label}</span>
+                          )}
+                        </li>
+                      ))}
+                      <li>
+                        <Link href="/" className="underline hover:text-blue-700">
+                          Toutes nos villes du Val-d&apos;Oise →
+                        </Link>
+                      </li>
+                    </ul>
                   ) : (
                     <div className="flex flex-wrap gap-2">
                       {city.nearby.map((v, i) => (
@@ -743,6 +771,45 @@ export default function CityLanding({ city }: { city: City }) {
                   </h3>
                   <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
                     Oui, nos plombiers à Ermont réparent tout type de WC défaillant : chasse d&apos;eau qui fuit, mécanisme de flotteur bloqué, joint de clapet usé ou WC suspendu défectueux. Intervention le jour même sur Ermont (95120).{" "}
+                    <Link href="/articles/wc-entretien-reparation" className="underline text-blue-700">
+                      Guide : réparer un WC qui coule soi-même →
+                    </Link>
+                  </p>
+                </div>
+              </>
+            ) : isMontmagny ? (
+              <>
+                {FAQ_ITEMS.slice(0, 2).map((item, i) => (
+                  <div key={i} className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                    <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                      {item.q(city)}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{item.a(city)}</p>
+                  </div>
+                ))}
+                <div className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                  <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                    Quelles zones couvrez-vous autour de Montmagny ?
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                    Nous intervenons à Montmagny (95360) et dans les communes voisines du Val-d&apos;Oise, sans frais de déplacement supplémentaires : Sarcelles, Enghien-les-Bains, Deuil-la-Barre, Groslay, Saint-Brice-sous-Forêt. Consultez notre{" "}
+                    <Link href="/" className="underline text-blue-700">page d&apos;accueil</Link> pour voir toutes les villes couvertes dans le 95.
+                  </p>
+                </div>
+                {FAQ_ITEMS.slice(3).map((item, i) => (
+                  <div key={i + 3} className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                    <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                      {item.q(city)}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{item.a(city)}</p>
+                  </div>
+                ))}
+                <div className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                  <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                    Intervenez-vous pour les WC qui coulent à Montmagny ?
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                    Oui, nos plombiers à Montmagny réparent tout type de WC défaillant : chasse d&apos;eau qui fuit, mécanisme de flotteur bloqué, joint de clapet usé ou WC suspendu défectueux. Intervention le jour même sur Montmagny (95360).{" "}
                     <Link href="/articles/wc-entretien-reparation" className="underline text-blue-700">
                       Guide : réparer un WC qui coule soi-même →
                     </Link>
