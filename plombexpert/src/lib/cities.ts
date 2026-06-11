@@ -235,9 +235,13 @@ export const CITIES: City[] = [
       "Joliot-Curie", "Orgemont", "Le Marcellin", "Bords de Seine", "La Colonie",
     ],
     nearby: ["Bezons", "Sartrouville", "Herblay", "Colombes", "Sannois"],
-    customTitle: "Plombier Argenteuil 95100 - Dépannage 24/7 | Plombier 95 Service",
-    customDescription: "Plombier à Argenteuil (95100) : dépannage urgent, recherche de fuite, chauffe-eau, débouchage. Artisan local, devis gratuit.",
-    customH1: "Plombier à Argenteuil (95100) - Artisan Plomberie",
+    customTitle: "Plombier Argenteuil 95100 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customDescription:
+      "Plombier à Argenteuil 95100 — Intervention sous 1h, 24h/24. Fuite, débouchage, chauffe-eau. Artisans RGE certifiés. Devis gratuit, 0 supplément déplacement. ☎ Appelez maintenant.",
+    customH1: "Plombier à Argenteuil (95100) — Urgence Fuite, Débouchage & Chauffage 24h/24",
+    customTwitterTitle: "Plombier Argenteuil 95100 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customTwitterDescription:
+      "Plombier à Argenteuil (95100) : dépannage urgent, fuite, débouchage, chauffe-eau. Artisan certifié RGE. Devis gratuit, intervention rapide.",
   },
   {
     slug: "Depannage-plomberie-Soisy-sous-Montmorency",
