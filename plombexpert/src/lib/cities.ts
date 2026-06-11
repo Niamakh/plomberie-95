@@ -127,9 +127,13 @@ export const CITIES: City[] = [
       "Le Vieux Saint-Gratien", "Parc des sports", "Quartier de la Gare",
     ],
     nearby: ["Enghien-les-Bains", "Soisy-sous-Montmorency", "Sannois", "Ermont", "Deuil-la-Barre"],
-    customTitle: "Plombier Saint-Gratien 95210 - Artisan Plomberie | Plombier 95",
-    customDescription: "Artisan plombier à Saint-Gratien (95210) : dépannage, chauffage, sanitaire. Intervention 7j/7, devis gratuit, garantie travaux.",
-    customH1: "Artisan Plombier à Saint-Gratien (95210) - Intervention 7j/7",
+    customTitle: "Plombier Saint-Gratien 95210 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customDescription:
+      "Plombier à Saint-Gratien 95210 — Intervention sous 1h, 24h/24. Fuite, débouchage, chauffe-eau. Artisans RGE certifiés. Devis gratuit, 0 supplément déplacement. ☎ Appelez maintenant.",
+    customH1: "Plombier à Saint-Gratien (95210) — Urgence Fuite, Débouchage & Chauffage 24h/24",
+    customTwitterTitle: "Plombier Saint-Gratien 95210 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customTwitterDescription:
+      "Plombier à Saint-Gratien (95210) : dépannage urgent, recherche de fuite, débouchage, chauffe-eau. Devis gratuit, intervention rapide.",
   },
   {
     slug: "Plombier-a-Ermont",

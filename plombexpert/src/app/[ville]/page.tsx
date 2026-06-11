@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   }
 
-  if (!["Plombier-Gonesse", "Plombier-sur-Herblay", "Plombier-Goussainville"].includes(city.slug)) {
+  if (!["Plombier-Gonesse", "Plombier-sur-Herblay", "Plombier-Goussainville", "Artisan-Plombier-Saint-Gratien"].includes(city.slug)) {
     metadata.keywords = [city.mainKeyword, ...city.secondaryKeywords]
   }
 
@@ -492,6 +492,149 @@ function GoussainvilleSchemas() {
   )
 }
 
+function SaintGratienSchemas() {
+  const localBusiness = {
+    "@context": "https://schema.org",
+    "@type": "Plumber",
+    name: "Plombier 95 Service",
+    url: `${BASE_URL}/Artisan-Plombier-Saint-Gratien/`,
+    telephone: PHONE_SCHEMA,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "À COMPLÉTER",
+      addressLocality: "Saint-Gratien",
+      postalCode: "95210",
+      addressCountry: "FR",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 48.9697,
+      longitude: 2.2883,
+    },
+    areaServed: [
+      { "@type": "City", name: "Saint-Gratien" },
+      { "@type": "City", name: "Enghien-les-Bains" },
+      { "@type": "City", name: "Soisy-sous-Montmorency" },
+      { "@type": "City", name: "Sannois" },
+      { "@type": "City", name: "Ermont" },
+      { "@type": "City", name: "Deuil-la-Barre" },
+    ],
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "00:00",
+      closes: "23:59",
+    },
+    priceRange: "€€",
+    hasCredential: "RGE Qualieau, Qualigaz",
+  }
+
+  const faqPage = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Combien coûte un plombier à Saint-Gratien ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Nos tarifs démarrent à 79 € HT pour une intervention standard en journée. Les urgences (nuit, week-end, jour férié) sont majorées — le tarif est annoncé avant déplacement. Devis gratuit systématique pour toute rénovation.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Intervenez-vous en urgence à Saint-Gratien la nuit ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Oui, notre service d'urgence plomberie à Saint-Gratien fonctionne 24h/24, 7j/7, 365 jours par an. En cas de dégât des eaux actif, fuite importante ou WC hors service, nous envoyons un technicien dans l'heure.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Quelles zones couvrez-vous autour de Saint-Gratien ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Nous intervenons à Saint-Gratien (95210) et dans les communes voisines du Val-d'Oise, sans frais de déplacement supplémentaires : Enghien-les-Bains, Soisy-sous-Montmorency, Sannois, Ermont, Deuil-la-Barre.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Acceptez-vous les demandes de prise en charge assurance ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Oui. Nous établissons tous les documents nécessaires à votre déclaration de sinistre (rapport, photos, devis détaillé). Nous travaillons régulièrement avec AXA, MAAF, Allianz et autres assureurs.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Comment détecter une fuite d'eau cachée à Saint-Gratien ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Signes : facture d'eau élevée, taches d'humidité sur les murs, moisissures sans cause, bruit d'eau robinets fermés. Nous utilisons caméra thermique et traceur de gaz pour localiser sans démolition.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Intervenez-vous pour les WC qui coulent à Saint-Gratien ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Oui, nos plombiers à Saint-Gratien réparent tout type de WC défaillant : chasse d'eau qui fuit, flotteur bloqué, joint de clapet usé ou WC suspendu défectueux. Intervention le jour même sur Saint-Gratien (95210).",
+        },
+      },
+    ],
+  }
+
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Accueil",
+        item: `${BASE_URL}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Plombier Saint-Gratien 95210",
+        item: `${BASE_URL}/Artisan-Plombier-Saint-Gratien/`,
+      },
+    ],
+  }
+
+  return (
+    <>
+      <Script
+        id="schema-local-business-saint-gratien"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
+      />
+      <Script
+        id="schema-faq-saint-gratien"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPage) }}
+      />
+      <Script
+        id="schema-breadcrumb-saint-gratien"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+    </>
+  )
+}
+
 export default async function VillePage({ params }: Props) {
   const { ville } = await params
   const city = getCityBySlug(ville)
@@ -503,6 +646,7 @@ export default async function VillePage({ params }: Props) {
       {city.slug === "Plombier-Gonesse" && <GonesseSchemas />}
       {city.slug === "Plombier-sur-Herblay" && <HerblaySchemas />}
       {city.slug === "Plombier-Goussainville" && <GoussainvilleSchemas />}
+      {city.slug === "Artisan-Plombier-Saint-Gratien" && <SaintGratienSchemas />}
       <Navbar />
       <main>
         <CityLanding city={city} />
