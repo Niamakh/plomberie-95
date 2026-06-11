@@ -7,6 +7,36 @@ import {
 } from "lucide-react"
 import type { City } from "@/lib/cities"
 
+// TODO: remplacer XXXXXXXXXX par le vrai numéro de téléphone
+const PHONE_TEL = "tel:+33XXXXXXXXXX"
+
+const GONESSE_SERVICE_GUIDES: Record<string, { href: string; label: string }> = {
+  "Débouchage canalisations": {
+    href: "/articles/deboucher-canalisation-karcher",
+    label: "→ Guide DIY débouchage canalisation",
+  },
+  "Chauffe-eau & ballon": {
+    href: "/articles/vider-chauffe-eau-tutoriel",
+    label: "→ Comment vider et entretenir son chauffe-eau",
+  },
+  "Recherche de fuite": {
+    href: "/articles/fuites-detecter-reparer",
+    label: "→ Détecter et réparer une fuite d'eau",
+  },
+  "Chauffage & radiateurs": {
+    href: "/articles/purger-radiateur-fonte-tuto",
+    label: "→ Comment purger un radiateur en fonte",
+  },
+}
+
+const GONESSE_NEARBY_LINKS = [
+  { label: "Plombier Villepinte", href: "/Plombier-Villepinte/" },
+  { label: "Plombier Garges-lès-Gonesse", href: "/Plombier-Garges-les-Gonesse/" },
+  { label: "Plombier Sarcelles", href: "/Plombier-Sarcelles/" },
+  { label: "Plombier Arnouville", href: "/Plombier-Arnouville/" },
+  { label: "Plombier Bonneuil-en-France", href: "/Plombier-Bonneuil-en-France/" },
+]
+
 const SERVICES = [
   { icon: <Droplets size={22} />, titre: "Dépannage fuite d'eau", desc: "Localisation et réparation de toutes les fuites : robinets, joints, tuyauteries apparentes ou encastrées.", urgence: true },
   { icon: <Zap size={22} />, titre: "Débouchage canalisations", desc: "Évier, WC, douche, bac à douche, canalisation extérieure. Furet, haute pression ou ventouse selon l'obstruction.", urgence: true },
@@ -47,6 +77,8 @@ const FAQ_ITEMS = [
 ]
 
 export default function CityLanding({ city }: { city: City }) {
+  const isGonesse = city.slug === "Plombier-Gonesse"
+
   return (
     <>
       {/* ══ HERO ══════════════════════════════════════════════════════ */}
@@ -92,12 +124,21 @@ export default function CityLanding({ city }: { city: City }) {
                 }}
               >
                 {city.customH1 ? (
-                  <>
-                    {city.customH1.split(" - ")[0]}{" "}
-                    <span style={{ color: "var(--color-sky)" }}>
-                      — {city.customH1.split(" - ")[1] ?? "Artisan local 7j/7"}
-                    </span>
-                  </>
+                  isGonesse ? (
+                    <>
+                      {city.customH1.split(" — ")[0]}{" "}
+                      <span style={{ color: "var(--color-sky)" }}>
+                        — {city.customH1.split(" — ")[1]}
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      {city.customH1.split(" - ")[0]}{" "}
+                      <span style={{ color: "var(--color-sky)" }}>
+                        — {city.customH1.split(" - ")[1] ?? "Artisan local 7j/7"}
+                      </span>
+                    </>
+                  )
                 ) : (
                   <>
                     Plombier à {city.name} ({city.cp}){" "}
@@ -123,7 +164,7 @@ export default function CityLanding({ city }: { city: City }) {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href="tel:+33100000000"
+                  href={PHONE_TEL}
                   className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold text-base transition-all hover:-translate-y-1"
                   style={{
                     background: "linear-gradient(135deg, var(--color-sky) 0%, var(--color-sky-dark) 100%)",
@@ -131,7 +172,7 @@ export default function CityLanding({ city }: { city: City }) {
                     fontFamily: "var(--font-display)",
                     boxShadow: "0 6px 20px oklch(68% 0.14 235 / 0.35)",
                   }}
-                  aria-label="Appeler un plombier à Gonesse"
+                  aria-label={`Appeler un plombier à ${city.name}`}
                 >
                   📞 Appeler un plombier
                 </a>
@@ -190,6 +231,15 @@ export default function CityLanding({ city }: { city: City }) {
             <p className="text-sm max-w-xl mx-auto" style={{ color: "var(--color-text-muted)" }}>
               Toutes les interventions plomberie et chauffage assurées par des artisans qualifiés, disponibles 24h/24 sur {city.name} ({city.cp}) et les communes voisines.
             </p>
+            {isGonesse && (
+              <p className="text-sm max-w-2xl mx-auto mt-4 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                Nos artisans qualifiés assurent toutes les interventions plomberie et chauffage à Gonesse (95500), 24h/24, 7j/7. De la{" "}
+                <Link href="/articles/fuites-detecter-reparer" className="underline text-blue-700">recherche de fuite</Link> au{" "}
+                <Link href="/articles/vider-chauffe-eau-tutoriel" className="underline text-blue-700">remplacement de chauffe-eau</Link>, en passant par le{" "}
+                <Link href="/articles/deboucher-canalisation-karcher" className="underline text-blue-700">débouchage de canalisations</Link> et la purge de radiateurs — une seule équipe pour toutes vos urgences. Besoin d&apos;informations avant d&apos;appeler ? Consultez nos{" "}
+                <Link href="/articles" className="underline text-blue-700">guides pratiques plomberie</Link> pour estimer votre problème.
+              </p>
+            )}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -213,6 +263,14 @@ export default function CityLanding({ city }: { city: City }) {
                   {service.titre}
                 </p>
                 <p className="text-sm leading-relaxed flex-1" style={{ color: "var(--color-text-muted)" }}>{service.desc}</p>
+                {isGonesse && GONESSE_SERVICE_GUIDES[service.titre] && (
+                  <Link
+                    href={GONESSE_SERVICE_GUIDES[service.titre].href}
+                    className="text-sm underline text-blue-700 mt-2 inline-block"
+                  >
+                    {GONESSE_SERVICE_GUIDES[service.titre].label}
+                  </Link>
+                )}
               </div>
             ))}
           </div>
@@ -258,14 +316,31 @@ export default function CityLanding({ city }: { city: City }) {
                   <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "var(--color-text-soft)" }}>
                     Communes voisines également desservies
                   </p>
-                  <div className="flex flex-wrap gap-2">
-                    {city.nearby.map((v, i) => (
-                      <span key={i} className="text-xs px-3 py-1.5 rounded-full font-semibold"
-                        style={{ background: "var(--color-sky-soft)", color: "var(--color-sky-dark)" }}>
-                        {v}
-                      </span>
-                    ))}
-                  </div>
+                  {isGonesse ? (
+                    <ul className="grid grid-cols-2 gap-2 mt-4 text-sm">
+                      {GONESSE_NEARBY_LINKS.map((link) => (
+                        <li key={link.href}>
+                          <Link href={link.href} className="underline hover:text-blue-700">
+                            {link.label}
+                          </Link>
+                        </li>
+                      ))}
+                      <li>
+                        <Link href="/" className="underline hover:text-blue-700">
+                          Toutes nos villes du Val-d&apos;Oise →
+                        </Link>
+                      </li>
+                    </ul>
+                  ) : (
+                    <div className="flex flex-wrap gap-2">
+                      {city.nearby.map((v, i) => (
+                        <span key={i} className="text-xs px-3 py-1.5 rounded-full font-semibold"
+                          style={{ background: "var(--color-sky-soft)", color: "var(--color-sky-dark)" }}>
+                          {v}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </>
               )}
             </div>
@@ -297,7 +372,7 @@ export default function CityLanding({ city }: { city: City }) {
                     ))}
                   </ul>
                   <a
-                    href="tel:+33100000000"
+                    href={PHONE_TEL}
                     className="w-full py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5"
                     style={{ background: "white", color: "var(--color-sky-dark)", fontFamily: "var(--font-display)" }}
                   >
@@ -343,14 +418,60 @@ export default function CityLanding({ city }: { city: City }) {
             Tout ce que vous devez savoir avant de faire appel à un plombier à {city.name} ({city.cp}).
           </p>
           <div className="flex flex-col gap-4">
-            {FAQ_ITEMS.map((item, i) => (
-              <div key={i} className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
-                <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
-                  {item.q(city)}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{item.a(city)}</p>
-              </div>
-            ))}
+            {isGonesse ? (
+              <>
+                {FAQ_ITEMS.slice(0, 2).map((item, i) => (
+                  <div key={i} className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                    <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                      {item.q(city)}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{item.a(city)}</p>
+                  </div>
+                ))}
+                <div className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                  <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                    Quelles zones couvrez-vous autour de Gonesse ?
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                    Nous intervenons à Gonesse (95500) et dans les communes voisines du Val-d&apos;Oise, sans frais de déplacement supplémentaires :{" "}
+                    <Link href="/Plombier-Garges-les-Gonesse/" className="underline text-blue-700">Garges-lès-Gonesse</Link>,{" "}
+                    <Link href="/Plombier-Sarcelles/" className="underline text-blue-700">Sarcelles</Link>,{" "}
+                    <Link href="/Plombier-Arnouville/" className="underline text-blue-700">Arnouville</Link>,{" "}
+                    <Link href="/Plombier-Bonneuil-en-France/" className="underline text-blue-700">Bonneuil-en-France</Link>,{" "}
+                    <Link href="/Plombier-Villepinte/" className="underline text-blue-700">Villepinte</Link>. Consultez notre{" "}
+                    <Link href="/" className="underline text-blue-700">page d&apos;accueil</Link> pour voir toutes les villes couvertes dans le 95.
+                  </p>
+                </div>
+                {FAQ_ITEMS.slice(3).map((item, i) => (
+                  <div key={i + 3} className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                    <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                      {item.q(city)}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{item.a(city)}</p>
+                  </div>
+                ))}
+                <div className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                  <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                    Intervenez-vous pour les WC qui coulent à Gonesse ?
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                    Oui, nos plombiers à Gonesse réparent tout type de WC défaillant : chasse d&apos;eau qui fuit, mécanisme de flotteur bloqué, joint de clapet usé ou WC suspendu défectueux. Intervention le jour même sur Gonesse (95500).{" "}
+                    <Link href="/articles/wc-entretien-reparation" className="underline text-blue-700">
+                      Guide : réparer un WC qui coule soi-même
+                    </Link>
+                  </p>
+                </div>
+              </>
+            ) : (
+              FAQ_ITEMS.map((item, i) => (
+                <div key={i} className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                  <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                    {item.q(city)}
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{item.a(city)}</p>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </section>

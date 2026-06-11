@@ -23,6 +23,10 @@ export interface City {
   customDescription?: string
   /** Texte du H1 personnalisé — remplace le H1 générique si renseigné */
   customH1?: string
+  /** Title Twitter Card personnalisé */
+  customTwitterTitle?: string
+  /** Description Twitter Card personnalisée */
+  customTwitterDescription?: string
 }
 
 export const CITIES: City[] = [
@@ -44,6 +48,13 @@ export const CITIES: City[] = [
       "Gonesse centre", "La Fauconnière", "Les Noues", "Val Roger", "Gonesse Gare",
     ],
     nearby: ["Villepinte", "Garges-lès-Gonesse", "Sarcelles", "Arnouville", "Bonneuil-en-France"],
+    customTitle: "Plombier Gonesse 95500 — Urgence 24h/24, Fuite, Débouchage | Plombier 95 Service",
+    customDescription:
+      "Plombier à Gonesse 95500 — Intervention sous 1h, 24h/24. Fuite, débouchage, chauffe-eau. Artisans RGE certifiés. Devis gratuit, 0 supplément déplacement. ☎ Appelez maintenant.",
+    customH1: "Plombier à Gonesse (95500) — Dépannage Urgence, Fuite & Débouchage 24h/24",
+    customTwitterTitle: "Plombier Gonesse 95500 — Urgence 24h/24, Fuite, Débouchage | Plombier 95 Service",
+    customTwitterDescription:
+      "Plombier à Gonesse (95500) : dépannage urgent, recherche de fuite, débouchage, chauffe-eau. Devis gratuit, intervention rapide.",
   },
   {
     slug: "Plombier-sur-Herblay",

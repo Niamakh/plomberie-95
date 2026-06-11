@@ -1,20 +1,35 @@
 "use client"
-import Link from "next/link"
 
+import Link from "next/link"
 import { Droplets } from "lucide-react"
 
 const FOOTER_LINKS = [
   {
     heading: "Blog",
-    links: ["Articles", "Tutos vidéo", "Guides achat", "FAQ"],
+    links: [
+      { label: "Articles", href: "/articles" },
+      { label: "Tutos vidéo", href: "/articles" },
+      { label: "Guides achat", href: "/articles" },
+      { label: "FAQ", href: "#faq" },
+    ],
   },
   {
     heading: "Thématiques",
-    links: ["Débouchage", "Chauffe-eau", "Robinetterie", "Fuites"],
+    links: [
+      { label: "Débouchage", href: "/articles/deboucher-canalisation-karcher" },
+      { label: "Chauffe-eau", href: "/articles/vider-chauffe-eau-tutoriel" },
+      { label: "Robinetterie", href: "/articles/wc-entretien-reparation" },
+      { label: "Fuites", href: "/articles/fuites-detecter-reparer" },
+    ],
   },
   {
     heading: "À propos",
-    links: ["À propos", "Mentions légales", "Contact", "Sitemap"],
+    links: [
+      { label: "À propos", href: "#" },
+      { label: "Mentions légales", href: "#" },
+      { label: "Contact", href: "#contact" },
+      { label: "Sitemap", href: "/sitemap.xml" },
+    ],
   },
 ]
 
@@ -69,20 +84,36 @@ export default function Footer() {
             </span>
             <ul className="flex flex-col gap-2.5">
               {col.links.map((link) => (
-                <li key={link}>
-                  <a
-                    href="#"
-                    className="text-sm transition-colors duration-150"
-                    style={{ color: "var(--color-text-muted)" }}
-                    onMouseEnter={(e) =>
-                      ((e.target as HTMLElement).style.color = "var(--color-sky-dark)")
-                    }
-                    onMouseLeave={(e) =>
-                      ((e.target as HTMLElement).style.color = "var(--color-text-muted)")
-                    }
-                  >
-                    {link}
-                  </a>
+                <li key={link.label}>
+                  {link.href.startsWith("#") ? (
+                    <a
+                      href={link.href}
+                      className="text-sm transition-colors duration-150"
+                      style={{ color: "var(--color-text-muted)" }}
+                      onMouseEnter={(e) =>
+                        ((e.target as HTMLElement).style.color = "var(--color-sky-dark)")
+                      }
+                      onMouseLeave={(e) =>
+                        ((e.target as HTMLElement).style.color = "var(--color-text-muted)")
+                      }
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-sm transition-colors duration-150"
+                      style={{ color: "var(--color-text-muted)" }}
+                      onMouseEnter={(e) =>
+                        ((e.target as HTMLElement).style.color = "var(--color-sky-dark)")
+                      }
+                      onMouseLeave={(e) =>
+                        ((e.target as HTMLElement).style.color = "var(--color-text-muted)")
+                      }
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
