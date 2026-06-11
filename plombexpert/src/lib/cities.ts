@@ -154,9 +154,13 @@ export const CITIES: City[] = [
       "Quartier de la Gare", "Les Sablons", "Hameau de la Croix",
     ],
     nearby: ["Saint-Gratien", "Sannois", "Franconville", "Soisy-sous-Montmorency", "Enghien-les-Bains"],
-    customTitle: "Plombier Ermont 95120 - Dépannage Plomberie | Plombier 95 Service",
-    customDescription: "Plombier à Ermont (95120) : fuite, débouchage, chaudière, sanitaire. Artisan certifié, intervention rapide, devis gratuit.",
-    customH1: "Plombier à Ermont (95120) - Dépannage Express",
+    customTitle: "Plombier Ermont 95120 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customDescription:
+      "Plombier à Ermont 95120 — Intervention sous 1h, 24h/24. Fuite, débouchage, chauffe-eau, chaudière. Artisans RGE certifiés. Devis gratuit, 0 supplément déplacement. ☎ Appelez maintenant.",
+    customH1: "Plombier à Ermont (95120) — Urgence Fuite, Débouchage & Chauffage 24h/24",
+    customTwitterTitle: "Plombier Ermont 95120 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customTwitterDescription:
+      "Plombier à Ermont (95120) : dépannage urgent, fuite, débouchage, chauffe-eau. Artisan certifié RGE. Devis gratuit, intervention rapide.",
   },
   {
     slug: "Plombier-Montmagny",
