@@ -100,9 +100,13 @@ export const CITIES: City[] = [
       "Goussainville centre", "Vieux-Pays", "Les Bâtons", "La Croix Verte", "Le Bois Certeau",
     ],
     nearby: ["Gonesse", "Sarcelles", "Villiers-le-Bel", "Garges-lès-Gonesse", "Fosses"],
-    customTitle: "Plombier Goussainville 95190 - Dépannage Urgent | Plombier 95",
-    customDescription: "Plombier Goussainville 95190 - Dépannage Urgent | Plombier 95",
-    customH1: "Plombier à Goussainville (95190) - Dépannage 24/7",
+    customTitle: "Plombier Goussainville 95190 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customDescription:
+      "Plombier à Goussainville 95190 — Intervention sous 1h, 24h/24. Fuite, débouchage, chauffe-eau. Artisans RGE certifiés. Devis gratuit, 0 supplément déplacement. ☎ Appelez maintenant.",
+    customH1: "Plombier à Goussainville (95190) — Urgence Fuite, Débouchage & Chauffage 24h/24",
+    customTwitterTitle: "Plombier Goussainville 95190 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customTwitterDescription:
+      "Plombier à Goussainville (95190) : dépannage urgent, recherche de fuite, débouchage, chauffe-eau. Devis gratuit, intervention rapide.",
   },
   {
     slug: "Artisan-Plombier-Saint-Gratien",

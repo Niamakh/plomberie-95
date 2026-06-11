@@ -45,6 +45,14 @@ const HERBLAY_NEARBY_LINKS = [
   { label: "Plombier Taverny", href: "/Plombier-Taverny/" },
 ]
 
+const GOUSSAINVILLE_NEARBY_LINKS = [
+  { label: "Plombier Gonesse", href: "/Plombier-Gonesse/" },
+  { label: "Plombier Sarcelles", href: "/Plombier-Sarcelles/" },
+  { label: "Plombier Villiers-le-Bel", href: "/Plombier-Villiers-le-Bel/" },
+  { label: "Plombier Garges-lès-Gonesse", href: "/Plombier-Garges-les-Gonesse/" },
+  { label: "Plombier Fosses", href: "/Plombier-Fosses/" },
+]
+
 const SERVICES = [
   { icon: <Droplets size={22} />, titre: "Dépannage fuite d'eau", desc: "Localisation et réparation de toutes les fuites : robinets, joints, tuyauteries apparentes ou encastrées.", urgence: true },
   { icon: <Zap size={22} />, titre: "Débouchage canalisations", desc: "Évier, WC, douche, bac à douche, canalisation extérieure. Furet, haute pression ou ventouse selon l'obstruction.", urgence: true },
@@ -87,7 +95,9 @@ const FAQ_ITEMS = [
 export default function CityLanding({ city }: { city: City }) {
   const isGonesse = city.slug === "Plombier-Gonesse"
   const isHerblay = city.slug === "Plombier-sur-Herblay"
-  const hasSeoEnhancements = isGonesse || isHerblay
+  const isGoussainville = city.slug === "Plombier-Goussainville"
+  const hasSeoEnhancements = isGonesse || isHerblay || isGoussainville
+  const hasReplacedIntro = isHerblay || isGoussainville
 
   return (
     <>
@@ -238,9 +248,9 @@ export default function CityLanding({ city }: { city: City }) {
             >
               Nos services de plomberie à {city.name}
             </h2>
-            {isHerblay ? (
+            {hasReplacedIntro ? (
               <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                Nos artisans qualifiés assurent toutes les interventions plomberie et chauffage à Herblay (95220), 24h/24, 7j/7. De la{" "}
+                Nos artisans qualifiés assurent toutes les interventions plomberie et chauffage à {city.name} ({city.cp}), 24h/24, 7j/7. De la{" "}
                 <Link href="/articles/fuites-detecter-reparer" className="underline text-blue-700">recherche de fuite</Link> au{" "}
                 <Link href="/articles/vider-chauffe-eau-tutoriel" className="underline text-blue-700">remplacement de chauffe-eau</Link>, en passant par le{" "}
                 <Link href="/articles/deboucher-canalisation-karcher" className="underline text-blue-700">débouchage de canalisations</Link> — une seule équipe pour toutes vos urgences. Besoin d&apos;informations avant d&apos;appeler ? Consultez nos{" "}
@@ -356,6 +366,21 @@ export default function CityLanding({ city }: { city: City }) {
                   ) : isHerblay ? (
                     <ul className="grid grid-cols-2 gap-2 mt-4 text-sm">
                       {HERBLAY_NEARBY_LINKS.map((link) => (
+                        <li key={link.href}>
+                          <Link href={link.href} className="underline hover:text-blue-700">
+                            {link.label}
+                          </Link>
+                        </li>
+                      ))}
+                      <li>
+                        <Link href="/" className="underline hover:text-blue-700">
+                          Toutes nos villes du Val-d&apos;Oise →
+                        </Link>
+                      </li>
+                    </ul>
+                  ) : isGoussainville ? (
+                    <ul className="grid grid-cols-2 gap-2 mt-4 text-sm">
+                      {GOUSSAINVILLE_NEARBY_LINKS.map((link) => (
                         <li key={link.href}>
                           <Link href={link.href} className="underline hover:text-blue-700">
                             {link.label}
@@ -537,6 +562,50 @@ export default function CityLanding({ city }: { city: City }) {
                   </h3>
                   <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
                     Oui, nos plombiers à Herblay réparent tout type de WC défaillant : chasse d&apos;eau qui fuit, mécanisme de flotteur bloqué, joint de clapet usé ou WC suspendu défectueux. Intervention le jour même sur Herblay (95220).{" "}
+                    <Link href="/articles/wc-entretien-reparation" className="underline text-blue-700">
+                      Guide : réparer un WC qui coule soi-même →
+                    </Link>
+                  </p>
+                </div>
+              </>
+            ) : isGoussainville ? (
+              <>
+                {FAQ_ITEMS.slice(0, 2).map((item, i) => (
+                  <div key={i} className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                    <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                      {item.q(city)}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{item.a(city)}</p>
+                  </div>
+                ))}
+                <div className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                  <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                    Quelles zones couvrez-vous autour de Goussainville ?
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                    Nous intervenons à Goussainville (95190) et dans les communes voisines du Val-d&apos;Oise, sans frais de déplacement supplémentaires :{" "}
+                    <Link href="/Plombier-Gonesse/" className="underline text-blue-700">Gonesse</Link>,{" "}
+                    <Link href="/Plombier-Sarcelles/" className="underline text-blue-700">Sarcelles</Link>,{" "}
+                    <Link href="/Plombier-Villiers-le-Bel/" className="underline text-blue-700">Villiers-le-Bel</Link>,{" "}
+                    <Link href="/Plombier-Garges-les-Gonesse/" className="underline text-blue-700">Garges-lès-Gonesse</Link>,{" "}
+                    <Link href="/Plombier-Fosses/" className="underline text-blue-700">Fosses</Link>. Consultez notre{" "}
+                    <Link href="/" className="underline text-blue-700">page d&apos;accueil</Link> pour voir toutes les villes couvertes dans le 95.
+                  </p>
+                </div>
+                {FAQ_ITEMS.slice(3).map((item, i) => (
+                  <div key={i + 3} className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                    <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                      {item.q(city)}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{item.a(city)}</p>
+                  </div>
+                ))}
+                <div className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                  <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                    Intervenez-vous pour les WC qui coulent à Goussainville ?
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                    Oui, nos plombiers à Goussainville réparent tout type de WC défaillant : chasse d&apos;eau qui fuit, mécanisme de flotteur bloqué, joint de clapet usé ou WC suspendu défectueux. Intervention le jour même sur Goussainville (95190).{" "}
                     <Link href="/articles/wc-entretien-reparation" className="underline text-blue-700">
                       Guide : réparer un WC qui coule soi-même →
                     </Link>
