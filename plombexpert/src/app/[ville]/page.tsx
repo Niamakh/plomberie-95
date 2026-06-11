@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   }
 
-  if (!["Plombier-Gonesse", "Plombier-sur-Herblay", "Plombier-Goussainville", "Artisan-Plombier-Saint-Gratien", "Plombier-a-Ermont", "Plombier-Montmagny", "Plombier-Montmorency", "Plombier-Argenteuil-95100", "Depannage-plomberie-Soisy-sous-Montmorency"].includes(city.slug)) {
+  if (!["Plombier-Gonesse", "Plombier-sur-Herblay", "Plombier-Goussainville", "Artisan-Plombier-Saint-Gratien", "Plombier-a-Ermont", "Plombier-Montmagny", "Plombier-Montmorency", "Plombier-Argenteuil-95100", "Depannage-plomberie-Soisy-sous-Montmorency", "Plombier-dans-Jouy-le-Moutier"].includes(city.slug)) {
     metadata.keywords = [city.mainKeyword, ...city.secondaryKeywords]
   }
 
@@ -1350,6 +1350,149 @@ function SoisySchemas() {
   )
 }
 
+function JouySchemas() {
+  const localBusiness = {
+    "@context": "https://schema.org",
+    "@type": "Plumber",
+    name: "Plombier 95 Service",
+    url: `${BASE_URL}/Plombier-dans-Jouy-le-Moutier/`,
+    telephone: PHONE_SCHEMA,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "À COMPLÉTER",
+      addressLocality: "Jouy-le-Moutier",
+      postalCode: "95280",
+      addressCountry: "FR",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 49.0333,
+      longitude: 2.0333,
+    },
+    areaServed: [
+      { "@type": "City", name: "Jouy-le-Moutier" },
+      { "@type": "City", name: "Cergy" },
+      { "@type": "City", name: "Pontoise" },
+      { "@type": "City", name: "Vauréal" },
+      { "@type": "City", name: "Osny" },
+      { "@type": "City", name: "Saint-Ouen-l'Aumône" },
+    ],
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "00:00",
+      closes: "23:59",
+    },
+    priceRange: "€€",
+    hasCredential: "RGE Qualieau, Qualigaz",
+  }
+
+  const faqPage = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Combien coûte un plombier à Jouy-le-Moutier ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Nos tarifs démarrent à 79 € HT pour une intervention standard en journée. Les urgences (nuit, week-end, jour férié) sont majorées — le tarif est annoncé avant déplacement. Devis gratuit systématique pour toute rénovation.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Intervenez-vous en urgence à Jouy-le-Moutier la nuit ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Oui, notre service d'urgence plomberie à Jouy-le-Moutier fonctionne 24h/24, 7j/7, 365 jours par an. En cas de dégât des eaux actif, fuite importante ou WC hors service, nous envoyons un technicien dans l'heure.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Quelles zones couvrez-vous autour de Jouy-le-Moutier ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Nous intervenons à Jouy-le-Moutier (95280) et dans les communes voisines du Val-d'Oise, sans frais de déplacement supplémentaires : Cergy, Pontoise, Vauréal, Osny, Saint-Ouen-l'Aumône.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Acceptez-vous les demandes de prise en charge assurance ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Oui. Nous établissons tous les documents nécessaires à votre déclaration de sinistre (rapport, photos, devis détaillé). Nous travaillons régulièrement avec AXA, MAAF, Allianz et autres assureurs.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Comment détecter une fuite d'eau cachée à Jouy-le-Moutier ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Signes : facture d'eau élevée, taches d'humidité sur les murs, moisissures sans cause, bruit d'eau robinets fermés. Nous utilisons caméra thermique et traceur de gaz pour localiser sans démolition.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Intervenez-vous pour les WC qui coulent à Jouy-le-Moutier ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Oui, nos plombiers à Jouy-le-Moutier réparent tout type de WC défaillant : chasse d'eau qui fuit, flotteur bloqué, joint de clapet usé ou WC suspendu défectueux. Intervention le jour même sur Jouy-le-Moutier (95280).",
+        },
+      },
+    ],
+  }
+
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Accueil",
+        item: `${BASE_URL}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Plombier Jouy-le-Moutier 95280",
+        item: `${BASE_URL}/Plombier-dans-Jouy-le-Moutier/`,
+      },
+    ],
+  }
+
+  return (
+    <>
+      <Script
+        id="schema-local-business-jouy"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
+      />
+      <Script
+        id="schema-faq-jouy"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPage) }}
+      />
+      <Script
+        id="schema-breadcrumb-jouy"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+    </>
+  )
+}
+
 export default async function VillePage({ params }: Props) {
   const { ville } = await params
   const city = getCityBySlug(ville)
@@ -1367,6 +1510,7 @@ export default async function VillePage({ params }: Props) {
       {city.slug === "Plombier-Montmorency" && <MontmorencySchemas />}
       {city.slug === "Plombier-Argenteuil-95100" && <ArgenteuilSchemas />}
       {city.slug === "Depannage-plomberie-Soisy-sous-Montmorency" && <SoisySchemas />}
+      {city.slug === "Plombier-dans-Jouy-le-Moutier" && <JouySchemas />}
       <Navbar />
       <main>
         <CityLanding city={city} />

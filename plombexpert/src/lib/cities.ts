@@ -289,9 +289,13 @@ export const CITIES: City[] = [
       "Quartier des Entrées", "La Croix des Rameaux", "Les Acacias",
     ],
     nearby: ["Cergy", "Pontoise", "Vauréal", "Osny", "Saint-Ouen-l'Aumône"],
-    customTitle: "Plombier Jouy-le-Moutier 95280 - Dépannage Plomberie | Plombier 95",
-    customDescription: "Plombier à Jouy-le-Moutier (95280) : urgence fuite, chaudière, débouchage. Artisan local, intervention rapide, devis transparent.",
-    customH1: "Plombier à Jouy-le-Moutier (95280) - Dépannage Rapide",
+    customTitle: "Plombier Jouy-le-Moutier 95280 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customDescription:
+      "Plombier à Jouy-le-Moutier 95280 — Intervention sous 1h, 24h/24. Fuite, débouchage, chauffe-eau, chaudière. Artisans RGE certifiés. Devis gratuit, 0 supplément déplacement. ☎ Appelez maintenant.",
+    customH1: "Plombier à Jouy-le-Moutier (95280) — Urgence Fuite, Débouchage & Chauffage 24h/24",
+    customTwitterTitle: "Plombier Jouy-le-Moutier 95280 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customTwitterDescription:
+      "Plombier à Jouy-le-Moutier (95280) : dépannage urgent, fuite, débouchage, chauffe-eau. Artisan certifié RGE. Devis gratuit, intervention rapide.",
   },
   // Ajoutez d'autres villes ici en suivant le même modèle :
   // {
