@@ -10,7 +10,7 @@ import type { City } from "@/lib/cities"
 // TODO: remplacer XXXXXXXXXX par le vrai numéro de téléphone
 const PHONE_TEL = "tel:+33XXXXXXXXXX"
 
-const GONESSE_SERVICE_GUIDES: Record<string, { href: string; label: string }> = {
+const SEO_SERVICE_GUIDES: Record<string, { href: string; label: string }> = {
   "Débouchage canalisations": {
     href: "/articles/deboucher-canalisation-karcher",
     label: "→ Guide DIY débouchage canalisation",
@@ -35,6 +35,14 @@ const GONESSE_NEARBY_LINKS = [
   { label: "Plombier Sarcelles", href: "/Plombier-Sarcelles/" },
   { label: "Plombier Arnouville", href: "/Plombier-Arnouville/" },
   { label: "Plombier Bonneuil-en-France", href: "/Plombier-Bonneuil-en-France/" },
+]
+
+const HERBLAY_NEARBY_LINKS = [
+  { label: "Plombier Conflans-Sainte-Honorine", href: "/Plombier-Conflans-Sainte-Honorine/" },
+  { label: "Plombier Argenteuil", href: "/Plombier-Argenteuil/" },
+  { label: "Plombier Cergy", href: "/Plombier-Cergy/" },
+  { label: "Plombier Franconville", href: "/Plombier-Franconville/" },
+  { label: "Plombier Taverny", href: "/Plombier-Taverny/" },
 ]
 
 const SERVICES = [
@@ -78,6 +86,8 @@ const FAQ_ITEMS = [
 
 export default function CityLanding({ city }: { city: City }) {
   const isGonesse = city.slug === "Plombier-Gonesse"
+  const isHerblay = city.slug === "Plombier-sur-Herblay"
+  const hasSeoEnhancements = isGonesse || isHerblay
 
   return (
     <>
@@ -124,7 +134,7 @@ export default function CityLanding({ city }: { city: City }) {
                 }}
               >
                 {city.customH1 ? (
-                  isGonesse ? (
+                  hasSeoEnhancements ? (
                     <>
                       {city.customH1.split(" — ")[0]}{" "}
                       <span style={{ color: "var(--color-sky)" }}>
@@ -228,17 +238,29 @@ export default function CityLanding({ city }: { city: City }) {
             >
               Nos services de plomberie à {city.name}
             </h2>
-            <p className="text-sm max-w-xl mx-auto" style={{ color: "var(--color-text-muted)" }}>
-              Toutes les interventions plomberie et chauffage assurées par des artisans qualifiés, disponibles 24h/24 sur {city.name} ({city.cp}) et les communes voisines.
-            </p>
-            {isGonesse && (
-              <p className="text-sm max-w-2xl mx-auto mt-4 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                Nos artisans qualifiés assurent toutes les interventions plomberie et chauffage à Gonesse (95500), 24h/24, 7j/7. De la{" "}
+            {isHerblay ? (
+              <p className="text-sm max-w-2xl mx-auto leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                Nos artisans qualifiés assurent toutes les interventions plomberie et chauffage à Herblay (95220), 24h/24, 7j/7. De la{" "}
                 <Link href="/articles/fuites-detecter-reparer" className="underline text-blue-700">recherche de fuite</Link> au{" "}
                 <Link href="/articles/vider-chauffe-eau-tutoriel" className="underline text-blue-700">remplacement de chauffe-eau</Link>, en passant par le{" "}
-                <Link href="/articles/deboucher-canalisation-karcher" className="underline text-blue-700">débouchage de canalisations</Link> et la purge de radiateurs — une seule équipe pour toutes vos urgences. Besoin d&apos;informations avant d&apos;appeler ? Consultez nos{" "}
-                <Link href="/articles" className="underline text-blue-700">guides pratiques plomberie</Link> pour estimer votre problème.
+                <Link href="/articles/deboucher-canalisation-karcher" className="underline text-blue-700">débouchage de canalisations</Link> — une seule équipe pour toutes vos urgences. Besoin d&apos;informations avant d&apos;appeler ? Consultez nos{" "}
+                <Link href="/articles" className="underline text-blue-700">guides pratiques plomberie</Link>.
               </p>
+            ) : (
+              <>
+                <p className="text-sm max-w-xl mx-auto" style={{ color: "var(--color-text-muted)" }}>
+                  Toutes les interventions plomberie et chauffage assurées par des artisans qualifiés, disponibles 24h/24 sur {city.name} ({city.cp}) et les communes voisines.
+                </p>
+                {isGonesse && (
+                  <p className="text-sm max-w-2xl mx-auto mt-4 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                    Nos artisans qualifiés assurent toutes les interventions plomberie et chauffage à Gonesse (95500), 24h/24, 7j/7. De la{" "}
+                    <Link href="/articles/fuites-detecter-reparer" className="underline text-blue-700">recherche de fuite</Link> au{" "}
+                    <Link href="/articles/vider-chauffe-eau-tutoriel" className="underline text-blue-700">remplacement de chauffe-eau</Link>, en passant par le{" "}
+                    <Link href="/articles/deboucher-canalisation-karcher" className="underline text-blue-700">débouchage de canalisations</Link> et la purge de radiateurs — une seule équipe pour toutes vos urgences. Besoin d&apos;informations avant d&apos;appeler ? Consultez nos{" "}
+                    <Link href="/articles" className="underline text-blue-700">guides pratiques plomberie</Link> pour estimer votre problème.
+                  </p>
+                )}
+              </>
             )}
           </div>
 
@@ -263,12 +285,12 @@ export default function CityLanding({ city }: { city: City }) {
                   {service.titre}
                 </p>
                 <p className="text-sm leading-relaxed flex-1" style={{ color: "var(--color-text-muted)" }}>{service.desc}</p>
-                {isGonesse && GONESSE_SERVICE_GUIDES[service.titre] && (
+                {hasSeoEnhancements && SEO_SERVICE_GUIDES[service.titre] && (
                   <Link
-                    href={GONESSE_SERVICE_GUIDES[service.titre].href}
+                    href={SEO_SERVICE_GUIDES[service.titre].href}
                     className="text-sm underline text-blue-700 mt-2 inline-block"
                   >
-                    {GONESSE_SERVICE_GUIDES[service.titre].label}
+                    {SEO_SERVICE_GUIDES[service.titre].label}
                   </Link>
                 )}
               </div>
@@ -319,6 +341,21 @@ export default function CityLanding({ city }: { city: City }) {
                   {isGonesse ? (
                     <ul className="grid grid-cols-2 gap-2 mt-4 text-sm">
                       {GONESSE_NEARBY_LINKS.map((link) => (
+                        <li key={link.href}>
+                          <Link href={link.href} className="underline hover:text-blue-700">
+                            {link.label}
+                          </Link>
+                        </li>
+                      ))}
+                      <li>
+                        <Link href="/" className="underline hover:text-blue-700">
+                          Toutes nos villes du Val-d&apos;Oise →
+                        </Link>
+                      </li>
+                    </ul>
+                  ) : isHerblay ? (
+                    <ul className="grid grid-cols-2 gap-2 mt-4 text-sm">
+                      {HERBLAY_NEARBY_LINKS.map((link) => (
                         <li key={link.href}>
                           <Link href={link.href} className="underline hover:text-blue-700">
                             {link.label}
@@ -462,6 +499,50 @@ export default function CityLanding({ city }: { city: City }) {
                   </p>
                 </div>
               </>
+            ) : isHerblay ? (
+              <>
+                {FAQ_ITEMS.slice(0, 2).map((item, i) => (
+                  <div key={i} className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                    <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                      {item.q(city)}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{item.a(city)}</p>
+                  </div>
+                ))}
+                <div className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                  <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                    Quelles zones couvrez-vous autour de Herblay ?
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                    Nous intervenons à Herblay (95220) et dans les communes voisines du Val-d&apos;Oise, sans frais de déplacement supplémentaires :{" "}
+                    <Link href="/Plombier-Conflans-Sainte-Honorine/" className="underline text-blue-700">Conflans-Sainte-Honorine</Link>,{" "}
+                    <Link href="/Plombier-Argenteuil/" className="underline text-blue-700">Argenteuil</Link>,{" "}
+                    <Link href="/Plombier-Cergy/" className="underline text-blue-700">Cergy</Link>,{" "}
+                    <Link href="/Plombier-Franconville/" className="underline text-blue-700">Franconville</Link>,{" "}
+                    <Link href="/Plombier-Taverny/" className="underline text-blue-700">Taverny</Link>. Consultez notre{" "}
+                    <Link href="/" className="underline text-blue-700">page d&apos;accueil</Link> pour voir toutes les villes couvertes dans le 95.
+                  </p>
+                </div>
+                {FAQ_ITEMS.slice(3).map((item, i) => (
+                  <div key={i + 3} className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                    <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                      {item.q(city)}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{item.a(city)}</p>
+                  </div>
+                ))}
+                <div className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
+                  <h3 className="font-bold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--color-text-primary)", fontSize: "1rem" }}>
+                    Intervenez-vous pour les WC qui coulent à Herblay ?
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                    Oui, nos plombiers à Herblay réparent tout type de WC défaillant : chasse d&apos;eau qui fuit, mécanisme de flotteur bloqué, joint de clapet usé ou WC suspendu défectueux. Intervention le jour même sur Herblay (95220).{" "}
+                    <Link href="/articles/wc-entretien-reparation" className="underline text-blue-700">
+                      Guide : réparer un WC qui coule soi-même →
+                    </Link>
+                  </p>
+                </div>
+              </>
             ) : (
               FAQ_ITEMS.map((item, i) => (
                 <div key={i} className="rounded-2xl p-6" style={{ background: "white", border: "1px solid var(--color-border)" }}>
@@ -502,6 +583,13 @@ export default function CityLanding({ city }: { city: City }) {
                     </li>
                   ))}
                 </ul>
+                {isHerblay && (
+                  <address className="mt-6 text-sm opacity-80 not-italic leading-relaxed">
+                    Plombier 95 Service<br />
+                    [Rue et numéro à compléter]<br />
+                    95220 Herblay-sur-Seine
+                  </address>
+                )}
               </div>
 
               {/* Formulaire de contact */}

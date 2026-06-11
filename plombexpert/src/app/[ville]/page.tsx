@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   }
 
-  if (city.slug !== "Plombier-Gonesse") {
+  if (!["Plombier-Gonesse", "Plombier-sur-Herblay"].includes(city.slug)) {
     metadata.keywords = [city.mainKeyword, ...city.secondaryKeywords]
   }
 
@@ -206,6 +206,149 @@ function GonesseSchemas() {
   )
 }
 
+function HerblaySchemas() {
+  const localBusiness = {
+    "@context": "https://schema.org",
+    "@type": "Plumber",
+    name: "Plombier 95 Service",
+    url: `${BASE_URL}/Plombier-sur-Herblay/`,
+    telephone: PHONE_SCHEMA,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "À COMPLÉTER",
+      addressLocality: "Herblay-sur-Seine",
+      postalCode: "95220",
+      addressCountry: "FR",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 48.9897,
+      longitude: 2.1697,
+    },
+    areaServed: [
+      { "@type": "City", name: "Herblay-sur-Seine" },
+      { "@type": "City", name: "Conflans-Sainte-Honorine" },
+      { "@type": "City", name: "Argenteuil" },
+      { "@type": "City", name: "Cergy" },
+      { "@type": "City", name: "Franconville" },
+      { "@type": "City", name: "Taverny" },
+    ],
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "00:00",
+      closes: "23:59",
+    },
+    priceRange: "€€",
+    hasCredential: "RGE Qualieau, Qualigaz",
+  }
+
+  const faqPage = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Combien coûte un plombier à Herblay ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Nos tarifs démarrent à 79 € HT pour une intervention standard en journée. Les urgences (nuit, week-end, jour férié) sont majorées — le tarif est annoncé avant déplacement. Devis gratuit systématique pour toute rénovation.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Intervenez-vous en urgence à Herblay la nuit ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Oui, notre service d'urgence plomberie à Herblay fonctionne 24h/24, 7j/7, 365 jours par an. En cas de dégât des eaux actif, fuite importante ou WC hors service, nous envoyons un technicien dans l'heure.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Quelles zones couvrez-vous autour de Herblay ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Nous intervenons à Herblay (95220) et dans les communes voisines : Conflans-Sainte-Honorine, Argenteuil, Cergy, Franconville, Taverny. Aucun frais de déplacement supplémentaire dans notre zone.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Acceptez-vous les demandes de prise en charge assurance ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Oui. Nous établissons tous les documents nécessaires à votre déclaration de sinistre (rapport, photos, devis détaillé). Nous travaillons régulièrement avec AXA, MAAF, Allianz et autres assureurs.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Comment détecter une fuite d'eau cachée à Herblay ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Signes : facture d'eau élevée, taches d'humidité sur les murs, moisissures sans cause, bruit d'eau robinets fermés. Nous utilisons caméra thermique et traceur de gaz pour localiser sans démolition.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Intervenez-vous pour les WC qui coulent à Herblay ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Oui, nos plombiers à Herblay réparent tout type de WC défaillant : chasse d'eau qui fuit, flotteur bloqué, joint de clapet usé ou WC suspendu défectueux. Intervention le jour même sur Herblay (95220).",
+        },
+      },
+    ],
+  }
+
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Accueil",
+        item: `${BASE_URL}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Plombier Herblay 95220",
+        item: `${BASE_URL}/Plombier-sur-Herblay/`,
+      },
+    ],
+  }
+
+  return (
+    <>
+      <Script
+        id="schema-local-business-herblay"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
+      />
+      <Script
+        id="schema-faq-herblay"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPage) }}
+      />
+      <Script
+        id="schema-breadcrumb-herblay"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+    </>
+  )
+}
+
 export default async function VillePage({ params }: Props) {
   const { ville } = await params
   const city = getCityBySlug(ville)
@@ -215,6 +358,7 @@ export default async function VillePage({ params }: Props) {
   return (
     <>
       {city.slug === "Plombier-Gonesse" && <GonesseSchemas />}
+      {city.slug === "Plombier-sur-Herblay" && <HerblaySchemas />}
       <Navbar />
       <main>
         <CityLanding city={city} />

@@ -74,9 +74,13 @@ export const CITIES: City[] = [
       "Herblay centre", "Le Cordon", "La Butte aux Grives", "Le Ru de Montlignon", "Val-Notre-Dame",
     ],
     nearby: ["Conflans-Sainte-Honorine", "Argenteuil", "Cergy", "Franconville", "Taverny"],
-    customTitle: "Plombier Herblay 95220 - Dépannage Plomberie | Plombier 95 Service",
-    customDescription: "Plombier à Herblay (95220) : urgence fuite, débouchage canalisation, installation sanitaire. Artisan local, devis gratuit, intervention sous 1h.",
-    customH1: "Plombier à Herblay (95220) - Artisan local 7j/7",
+    customTitle: "Plombier Herblay 95220 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customDescription:
+      "Plombier à Herblay 95220 — Intervention sous 1h, 24h/24. Fuite, débouchage, chauffe-eau. Artisans RGE certifiés. Devis gratuit, 0 supplément déplacement. ☎ Appelez maintenant.",
+    customH1: "Plombier à Herblay (95220) — Dépannage Urgence, Fuite & Débouchage 24h/24",
+    customTwitterTitle: "Plombier Herblay 95220 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customTwitterDescription:
+      "Plombier à Herblay (95220) : dépannage urgent, recherche de fuite, débouchage, chauffe-eau. Devis gratuit, intervention rapide.",
   },
   {
     slug: "Plombier-Goussainville",
