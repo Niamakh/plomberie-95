@@ -208,9 +208,13 @@ export const CITIES: City[] = [
       "Quartier Jean-Jacques Rousseau", "Les Grandes Terres", "La Croix de la Mission",
     ],
     nearby: ["Enghien-les-Bains", "Saint-Gratien", "Soisy-sous-Montmorency", "Deuil-la-Barre", "Andilly"],
-    customTitle: "Plombier Montmorency 95160 - Dépannage Plomberie | Plombier 95",
-    customDescription: "Plombier à Montmorency (95160) : urgence fuite, chaudière, débouchage WC. Artisan certifié, intervention 24h/24, devis gratuit.",
-    customH1: "Plombier à Montmorency (95160) - Intervention 24h/24",
+    customTitle: "Plombier Montmorency 95160 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customDescription:
+      "Plombier à Montmorency 95160 — Intervention sous 1h, 24h/24. Fuite, débouchage, chauffe-eau, chaudière. Artisans RGE certifiés. Devis gratuit, 0 supplément déplacement. ☎ Appelez maintenant.",
+    customH1: "Plombier à Montmorency (95160) — Urgence Fuite, Débouchage & Chauffage 24h/24",
+    customTwitterTitle: "Plombier Montmorency 95160 — Urgence 24h/24, Fuite & Débouchage | Plombier 95 Service",
+    customTwitterDescription:
+      "Plombier à Montmorency (95160) : dépannage urgent, fuite, débouchage, chauffe-eau, chaudière. Artisan certifié RGE. Devis gratuit, intervention rapide.",
   },
   {
     slug: "Plombier-Argenteuil-95100",
