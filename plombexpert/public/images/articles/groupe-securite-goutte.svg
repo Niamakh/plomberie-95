@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-label="Groupe de sécurité de chauffe-eau avec gouttes d'évacuation">
+  <rect width="800" height="450" fill="#f0f7ff"/>
+  <ellipse cx="400" cy="250" rx="100" ry="120" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+  <rect x="370" y="120" width="60" height="50" rx="4" fill="#475569"/>
+  <circle cx="400" cy="145" r="12" fill="#ef4444"/>
+  <path d="M395 170 L395 200" stroke="#64748b" stroke-width="8"/>
+  <circle cx="395" cy="210" r="6" fill="#0ea5e9"/>
+  <path d="M395 216 Q400 240 395 260" fill="none" stroke="#0ea5e9" stroke-width="2"/>
+  <circle cx="393" cy="270" r="3" fill="#0ea5e9"/>
+  <circle cx="397" cy="285" r="3" fill="#0ea5e9"/>
+  <text x="400" y="390" text-anchor="middle" fill="#1e3a5f" font-family="sans-serif" font-size="16" font-weight="600">Quelques gouttes = dilatation normale</text>
+</svg>
