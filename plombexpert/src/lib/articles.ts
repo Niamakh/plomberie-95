@@ -191,6 +191,38 @@ export const FEATURED_ARTICLES: Article[] = [
     isNew: false,
     hasPage: true,
   },
+  {
+    id: 12,
+    title: "Installation d'une douche italienne : le guide complet étape par étape",
+    excerpt:
+      "Comment installer un receveur de douche italienne soi-même : pente, étanchéité, évacuation. Le guide pas à pas avec les erreurs à éviter.",
+    category: "Salle de bain",
+    emoji: "🛁",
+    readTime: 9,
+    date: "3 juil. 2026",
+    format: "Guide complet",
+    level: "Avancé",
+    slug: "installation-douche-italienne",
+    featured: true,
+    isNew: true,
+    hasPage: true,
+  },
+  {
+    id: 13,
+    title: "Remplacer un receveur de douche : le guide complet (transformation baignoire incluse)",
+    excerpt:
+      "Comment remplacer un receveur de douche fissuré, jauni ou trop haut, y compris en cas de transformation d'une baignoire en douche. Étapes, budget, erreurs à éviter.",
+    category: "Salle de bain",
+    emoji: "🛁",
+    readTime: 8,
+    date: "3 juil. 2026",
+    format: "Guide complet",
+    level: "Intermédiaire",
+    slug: "remplacement-receveur-douche",
+    featured: true,
+    isNew: true,
+    hasPage: true,
+  },
 ]
 
 export const CATEGORIES = [
@@ -203,5 +235,6 @@ export const CATEGORIES = [
   { label: "WC",           emoji: "🚽", slug: "wc-entretien-reparation" },
   { label: "Matériel",     emoji: "📐", slug: "outils-plomberie-indispensables" },
   { label: "Radiateurs",   emoji: "🌡️", slug: "purger-radiateur-fonte-tuto" },
+  { label: "Salle de bain", emoji: "🛁", slug: "installation-douche-italienne" },
   { label: "Siphon",       emoji: "🪠", slug: "siphon-nettoyage-remplacement" },
 ]
