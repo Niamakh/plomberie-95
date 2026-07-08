@@ -33,7 +33,7 @@ export default function GroupeSecuriteBody() {
           normale de l&apos;eau dilatée lors du chauffage. En revanche, un écoulement continu ou une fuite
           importante signale une anomalie à corriger avant qu&apos;elle n&apos;abîme le ballon ou inonde le local.
         </p>
-        <ArticleFigure src="/images/articles/groupe-securite-goutte.svg" alt="Groupe de sécurité de chauffe-eau avec quelques gouttes d'eau au tuyau d'évacuation" caption="Quelques gouttes pendant le chauffe : fonctionnement normal" priority />
+        <ArticleFigure src="/images/articles/securite_chauffe_eau.webp" alt="Groupe de sécurité de chauffe-eau avec quelques gouttes d'eau au tuyau d'évacuation" caption="Quelques gouttes pendant le chauffe : fonctionnement normal" priority />
       </section>
 
       <section>
