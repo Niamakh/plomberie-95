@@ -33,7 +33,7 @@ export default function FuiteCompteurBody() {
           gaspillée incluses. Avant d&apos;appeler le plombier ou le syndic, voici comment distinguer les
           responsabilités, localiser la fuite et engager les démarches de dégrèvement auprès de votre distributeur.
         </p>
-        <ArticleFigure src="/images/articles/fuite-compteur-eau.svg" alt="Schéma d'un compteur d'eau avec fuite sur la canalisation située après le compteur côté logement" caption="Après le compteur : la responsabilité incombe au propriétaire ou à l'occupant" priority />
+        <ArticleFigure src="/images/articles/compteur_d'eau.webp" alt="Schéma d'un compteur d'eau avec fuite sur la canalisation située après le compteur côté logement" caption="Après le compteur : la responsabilité incombe au propriétaire ou à l'occupant" priority />
       </section>
 
       <section>
