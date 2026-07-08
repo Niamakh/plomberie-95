@@ -109,7 +109,7 @@ export default function RemplacementReceveurBody() {
         </p>
 
         <ArticleFigure
-          src="/images/articles/receveur-ancien-depose.svg"
+          src="/images/articles/receveur-ancien-depose.webp"
           alt="Ancien receveur de douche fissuré déposé, bonde et siphon démontés sur le sol de la salle de bain"
           caption="Receveur fissuré ou trop haut : la dépose précède toute pose neuve"
           width={800}
@@ -180,7 +180,7 @@ export default function RemplacementReceveurBody() {
         </ol>
 
         <ArticleFigure
-          src="/images/articles/receveur-evacuation-adaptee.svg"
+          src="/images/articles/receveur-evacuation-adaptee.webp"
           alt="Bonde extra-plate raccordée à la canalisation d'évacuation, adaptée à un receveur de faible hauteur"
           caption="Adapter l'évacuation : bonde extra-plate ou reprise de canalisation"
           width={800}
@@ -210,7 +210,7 @@ export default function RemplacementReceveurBody() {
         </ol>
 
         <ArticleFigure
-          src="/images/articles/receveur-neuf-pose.svg"
+          src="/images/articles/receveur-neuf-pose.webp"
           alt="Nouveau receveur extra-plat posé et raccordé à la bonde, joint périphérique en cours de finition"
           caption="Receveur neuf posé : test d'écoulement avant fixation définitive"
           width={800}

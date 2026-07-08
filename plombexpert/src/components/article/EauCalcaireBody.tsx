@@ -34,7 +34,7 @@ export default function EauCalcaireBody() {
           précoces vous permet d&apos;agir avant qu&apos;un robinet, un chauffe-eau ou une canalisation ne soient
           hors d&apos;usage.
         </p>
-        <ArticleFigure src="/images/articles/calcaire_eau.webp" alt="Dépôts de calcaire blanc sur une canalisation et un robinet de salle de bain entartré" caption="L'entartrage se forme là où l'eau chauffe et stagne" priority />
+        <ArticleFigure src="/images/articles/eau_calcaire.webp" alt="Dépôts de calcaire blanc sur une canalisation et un robinet de salle de bain entartré" caption="L'entartrage se forme là où l'eau chauffe et stagne" priority />
       </section>
 
       <section>

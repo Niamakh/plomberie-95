@@ -35,7 +35,7 @@ export default function PerCuivreMulticoucheBody() {
           s&apos;utilisent pas indifféremment. Voici comment choisir selon votre budget, vos compétences et la nature
           du chantier, sans vous retrouver avec un matériau interdit ou une pose qui ne tiendra pas dix ans.
         </p>
-        <ArticleFigure src="/images/articles/per-cuivre-multicouche.svg" alt="Comparatif visuel de tuyaux PER, cuivre et multicouche pour la plomberie d'une rénovation" caption="PER, cuivre, multicouche : trois matériaux, trois méthodes de pose" priority />
+        <ArticleFigure src="/images/articles/PERvsuivrevsmulticouche.webp" alt="Comparatif visuel de tuyaux PER, cuivre et multicouche pour la plomberie d'une rénovation" caption="PER, cuivre, multicouche : trois matériaux, trois méthodes de pose" priority />
       </section>
 
       <section>
