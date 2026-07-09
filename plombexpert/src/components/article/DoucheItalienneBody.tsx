@@ -113,7 +113,7 @@ export default function DoucheItalienneBody() {
         </p>
 
         <ArticleFigure
-          src="/images/articles/receveur-ancien-depose.svg"
+          src="/images/articles/douche_italienne.webp"
           alt="Receveur extra-plat de douche italienne posé dans une réservation au sol, au niveau du carrelage"
           caption="Receveur extra-plat encastré : pente et étanchéité intégrées au bac"
           width={800}
@@ -163,7 +163,7 @@ export default function DoucheItalienneBody() {
         </p>
 
         <ArticleFigure
-          src="/images/articles/receveur-evacuation-adaptee.svg"
+          src="/images/articles/evacuation_italienne.webp"
           alt="Schéma de pente d'une douche italienne : 1 à 2 cm par mètre vers la bonde d'évacuation Ø 50 mm"
           caption="Pente minimale : 1 à 2 cm/m vers le point le plus bas"
           width={800}
@@ -201,7 +201,7 @@ export default function DoucheItalienneBody() {
         </Tip>
 
         <ArticleFigure
-          src="/images/articles/receveur-neuf-pose.svg"
+          src="/images/articles/joint_douche.webp"
           alt="Application de bande d'étanchéité et résine liquide SEL sur le pourtour d'un receveur de douche"
           caption="Bande à joint remontée sur les murs + couche de SEL avant carrelage"
           width={800}
